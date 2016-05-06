@@ -1,0 +1,27 @@
+{
+  "name": "es-feature-detection",
+  "version": "1.0.0",
+  "description": "ECMAScript feature and API detection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "caniuse:win": "(if exist .\\caniuse rd .\\caniuse /s /q) & md .\\caniuse & powershell -command \"& { foreach($i in @(5,6)) { iwr https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es$i.js -OutFile caniuse/es$i.js }}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Tokimon@github.com/Tokimon/es-feature-detection.git"
+  },
+  "keywords": [
+    "echmascript",
+    "featuretest",
+    "caniuse"
+  ],
+  "author": "Toke Voltelen <tokevoltelen@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tokimon/es-feature-detection/issues"
+  },
+  "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
+  "devDependencies": {
+  }
+}
