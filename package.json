@@ -4,7 +4,7 @@
   "description": "ECMAScript feature and API detection",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node tester.js",
     "caniuse:win": "(if exist .\\caniuse rd .\\caniuse /s /q) & md .\\caniuse & powershell -command \"& { foreach($i in @(5,6)) { iwr https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es$i.js -OutFile caniuse/es$i.js }}\""
   },
   "repository": {
