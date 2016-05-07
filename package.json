@@ -22,6 +22,10 @@
     "url": "https://github.com/Tokimon/es-feature-detection/issues"
   },
   "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "acorn": "2.0.4",
+    "globby": "^4.0.0",
+    "object.assign": "^4.0.3"
   }
 }
