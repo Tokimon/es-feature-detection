@@ -45,15 +45,15 @@ export default function es6syntax(ignore=[]) {
   return Object.keys(tests)
     .filter((key) => ignore.indexOf(key) < 0)
     .reduce((obj, key) => {
-      let test = tests[key];
+      const test = tests[key];
 
       if(!Array.isArray(test)) {
         obj[key] = runTest(test);
       } else if(typeof test[1] === 'function') {
-        obj[key] = runTest(...test);
+        obj[key] = runTest(test[0], test[1]);
       } else {
         obj[key] = test.every(
-          (entry) => !Array.isArray(entry) ? runTest(entry) : runTest(...entry)
+          (entry) => !Array.isArray(entry) ? runTest(entry) : runTest(entry[0], entry[1])
         );
       }
 

@@ -136,4 +136,4 @@ export default function features() {
     'WeakMap': typeof window.WeakMap === 'function',
     'WeakSet': typeof window.WeakSet === 'function'
   };
-};
+}
