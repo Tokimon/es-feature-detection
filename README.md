@@ -110,4 +110,4 @@ detectFeatures(['script1', 'script2'])
 Like that you have an optimized script to include in you page that can detect syntax and features of the browser of the user, so you can load just what you need and nothing more.
 
 ### Ideas?
-Have any ideas, improvement request or bugs you have found, don't hesitate to file an issue in the [issue list](/issues) or throw me a PR if you have done some improvements you want to bring to the script.
+Have any ideas, improvement request or bugs you have found, don't hesitate to file an issue in the [issue list](https://github.com/Tokimon/es-feature-detection/issues) or throw me a PR if you have done some improvements you want to bring to the script.
