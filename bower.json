@@ -1,0 +1,22 @@
+{
+  "name": "es-feature-detection",
+  "description": "ECMAScript feature and API detection",
+  "main": "index.js",
+  "authors": [
+    "Toke Voltelen <tokevoltelen@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "echmascript",
+    "featuretest",
+    "caniuse"
+  ],
+  "homepage": "https://github.com/Tokimon/es-feature-detection",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
