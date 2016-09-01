@@ -16,8 +16,8 @@ your code. But there are several drawbacks by doing so:
 3. You bloat your script with transpiler code, that you don't need as many modern
 browsers already support the new syntax. Yes IE (edge) as well.
 
-I needed a proper tool to detect features that was actually used in the script file,
-so I could decide what to load.
+Personally I needed a proper tool to detect features that was actually used in the script file,
+so I could decide what to load, so I build this.
 
 ## The how?
 
@@ -43,7 +43,9 @@ if(!apis.Object.assign) {
 }
 ```
 
-### Detect used features
+### Build custom feature detection file
+
+#### Detect used features
 
 If you are using some kind of build process you can detect the used features on beforehand, that you can use to determine which test you actually need to look at:
 
@@ -56,6 +58,8 @@ detectFeatures(['script1', 'script2'])
     // eg. ['Array.from', 'Object.assign', 'Promise', 'Proxy', etc...]
   });
 ```
+
+#### Filter features according to your browser needs
 
 But this array can contain features that your target browsers may support anyway
 so we can look into the caniuse DB to see what kind of features we actually need
@@ -75,8 +79,28 @@ detectFeatures(['script1', 'script2'])
   });
 ```
 
+### Create feature detection file
+
 Now we are getting somewhere, but we can do even better. Right now the feature script we include is still fairly large compared to our actual needs, so how about we cut down that
 script to only what we need:
+
+```javascript
+const detectFeatures = require('es-feature-detection/lib/detectFeatures');
+const filterFeatures = require('es-feature-detection/lib/filterFeatures');
+const writeScript = require('es-feature-detection/lib/featureTestParser').write;
+
+detectFeatures(['script1', 'script2'])
+  // features = ['Array.indexOf', 'Array.map', 'Object.assign', 'Promise', 'Proxy']
+  .then((features) => filterFeatures(features, ['latest browsers', 'IE 10']))
+  // filteredFeatures = ['Object.assign', 'Promise', 'Proxy']
+  .then((filteredFeatures) => composeScript(filteredFeatures, 'path/to/file.js'))
+  .then((writeStream) => {
+    // Do something with the write stream... or not...
+  });
+```
+
+
+You can also create you own custom file via the `compose` method
 
 ```javascript
 const detectFeatures = require('es-feature-detection/lib/detectFeatures');
@@ -84,14 +108,10 @@ const filterFeatures = require('es-feature-detection/lib/filterFeatures');
 const composeScript = require('es-feature-detection/lib/featureTestParser').compose;
 
 detectFeatures(['script1', 'script2'])
-  .then((features) => {
-    // features = ['Array.indexOf', 'Array.map', 'Object.assign', 'Promise', 'Proxy']
-    return filterFeatures(features, ['latest browsers', 'IE 10']);
-  })
-  .then((filteredFeatures) => {
-    // filteredFeatures = ['Object.assign', 'Promise', 'Proxy']
-    return composeScript(filteredFeatures);
-  })
+  // features = ['Array.indexOf', 'Array.map', 'Object.assign', 'Promise', 'Proxy']
+  .then((features) => filterFeatures(features, ['latest browsers', 'IE 10']))
+  // filteredFeatures = ['Object.assign', 'Promise', 'Proxy']
+  .then((filteredFeatures) => composeScript(filteredFeatures))
   .then((composedScript) => {
     const writeStream = fs.createWriteStream('featuretest.js');
     // The composed script contains of 2 parts:
