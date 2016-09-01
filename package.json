@@ -12,6 +12,8 @@
     "url": "git+https://Tokimon@github.com/Tokimon/es-feature-detection.git"
   },
   "keywords": [
+    "es6",
+    "es2015",
     "echmascript",
     "featuretest",
     "caniuse"
@@ -22,10 +24,10 @@
     "url": "https://github.com/Tokimon/es-feature-detection/issues"
   },
   "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
-  "devDependencies": {},
   "dependencies": {
-    "acorn": "2.0.4",
-    "globby": "^4.0.0",
-    "object.assign": "^4.0.3"
+    "acorn": "^2.0.4",
+    "globby": "^4.1.0",
+    "mkdirp": "^0.5.1",
+    "object.assign": "^4.0.4"
   }
 }
