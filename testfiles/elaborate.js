@@ -12,6 +12,27 @@ export const _var = 42;
 // Arrow function test
 const arrow = () => 'arrow';
 
+const $ = () => { return { is() { return true; }, toJSON() { return {}; } }; }
+const obj = { toJSON() {} };
+
+function toJSON() {}
+
+$('nevermind').is('whatever');
+
+const somedate = new Date();
+const finaldate = somedate;
+
+const json = toJSON('{ a: 1 }');
+const json2 = $().toJSON('{ a: 1 }');
+const json3 = obj.toJSON('{ a: 1 }');
+
+
+const jsonDate = (new Date()).toJSON();
+const jsonDate2 = somedate.toJSON();
+const jsonDate3 = finaldate.toJSON();
+
+Object.is(null, null);
+
 function arrowThisTest() {
   this.b = 1;
   this.c = function(arr) { return arr.map((n) => this.b + n) }
