@@ -79,7 +79,7 @@ detectFeatures(['script1', 'script2'])
   });
 ```
 
-### Create feature detection file
+#### Create feature detection file
 
 Now we are getting somewhere, but we can do even better. Right now the feature script we include is still fairly large compared to our actual needs, so how about we cut down that
 script to only what we need:
@@ -99,6 +99,7 @@ detectFeatures(['script1', 'script2'])
   });
 ```
 
+#### Or create custom feature detection file
 
 You can also create you own custom file via the `compose` method
 
