@@ -1,3 +1,6 @@
+require('object.assign').shim();
+var temp = {};
+
 // exports browsers and tests
 exports.name = 'ES5';
 exports.target_file = 'es5/index.html';
@@ -30,8 +33,20 @@ exports.browsers = {
   ie10: {
     full: 'Internet Explorer 10, 11',
     family: 'Chakra',
-    short: 'IE 10+',
+    short: 'IE 10-11',
     obsolete: false
+  },
+  edge13: {
+    full: 'Edge 13+',
+    family: 'Chakra',
+    short: 'Edge 13+',
+    obsolete: false
+  },
+  firefox2: {
+    full: 'Firefox 2',
+    family: 'SpiderMonkey',
+    short: 'FF 2',
+    obsolete: true
   },
   firefox3: {
     full: 'Firefox 3',
@@ -40,21 +55,45 @@ exports.browsers = {
     obsolete: true
   },
   firefox3_5: {
-    full: 'Firefox 3.5, Firefox 3.6',
+    full: 'Firefox 3.5',
     family: 'SpiderMonkey',
-    short: 'FF 3.5, 3.6',
+    short: 'FF 3.5',
+    obsolete: true
+  },
+  firefox3_6: {
+    full: 'Firefox 3.6',
+    family: 'SpiderMonkey',
+    short: 'FF 3.6',
     obsolete: true
   },
   firefox4: {
-    full: 'Firefox 4-20',
+    full: 'Firefox 4',
     family: 'SpiderMonkey',
-    short: 'FF 4-20',
+    short: 'FF 4',
+    obsolete: true
+  },
+  firefox5: {
+    full: 'Firefox 5-7',
+    family: 'SpiderMonkey',
+    short: 'FF 5-7',
+    obsolete: true
+  },
+  firefox8: {
+    full: 'Firefox 8-20',
+    family: 'SpiderMonkey',
+    short: 'FF 8-20',
     obsolete: true
   },
   firefox21: {
-    full: 'Firefox 21+',
+    full: 'Firefox 21-45',
     family: 'SpiderMonkey',
-    short: 'FF 21+',
+    short: 'FF 21-45',
+    obsolete: false
+  },
+  firefox46: {
+    full: 'Firefox 46+',
+    family: 'SpiderMonkey',
+    short: 'FF 46+',
     obsolete: false
   },
   safari3: {
@@ -84,19 +123,26 @@ exports.browsers = {
   safari6: {
     full: 'Safari 6.0, Safari 7.0, Safari 7.1, Safari 8, Safari 9',
     family: 'JavaScriptCore',
-    short: 'SF 6+',
+    short: 'SF 6-9',
+    obsolete: false
+  },
+  safari10: {
+    full: 'Safari 10',
+    family: 'JavaScriptCore',
+    short: 'SF 10',
     obsolete: false
   },
   safaritp: {
-    full: 'Safari Technology Preview Release 2',
+    full: 'Safari Technology Preview Release 12',
+    family: 'JavaScriptCore',
     short: 'SF TP',
     unstable: true
   },
   webkit: {
-    full: 'Webkit r200167 (April 28, 2016)',
+    full: 'WebKit r204915 (August 24, 2016)',
     family: 'JavaScriptCore',
     short: 'WebKit',
-    obsolete: false
+    unstable: true
   },
   chrome5: {
     full: 'Chrome 5 (5.0.375.127)',
@@ -129,10 +175,16 @@ exports.browsers = {
     obsolete: true
   },
   chrome23: {
-    full: 'Chrome 23+, Opera 15+',
+    full: 'Chrome 23-53, Opera 15+',
     family: 'V8',
-    short: 'CH 23+,<br>OP 15+',
+    short: 'CH 23-53,<br>OP 15+',
     obsolete: false
+  },
+  chrome54: {
+    full: 'Chrome 54 (54.0.2808.0 canary)',
+    family: 'V8',
+    short: 'CH 54',
+    unstable: true
   },
   opera10_10: {
     full: 'Opera 10.10',
@@ -225,8 +277,8 @@ exports.browsers = {
     ignore_flagged: true,
   },
   ios78: {
-    full: 'iOS Safari 7/8',
-    short: 'iOS7/8',
+    full: 'iOS Safari 7/8/9',
+    short: 'iOS7/8/9',
     equals: 'safari6',
     platformtype: 'mobile',
   }
@@ -247,7 +299,7 @@ exports.tests = [
     */},
     res: {
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: true,
       safaritp: true,
       webkit: true,
@@ -269,7 +321,7 @@ exports.tests = [
     */},
     res: {
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: true,
       safaritp: true,
       webkit: true,
@@ -289,7 +341,7 @@ exports.tests = [
     */},
     res: {
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: null,
       safari4: true,
       safaritp: true,
@@ -312,7 +364,7 @@ exports.tests = [
     */},
     res: {
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: null,
       safari4: true,
       safaritp: true,
@@ -335,7 +387,7 @@ exports.tests = [
     */},
     res: {
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari51: true,
       safaritp: true,
       webkit: true,
@@ -681,7 +733,7 @@ exports.tests = [
     res: {
       es5shim: true,
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: true,
       safaritp: true,
       webkit: true,
@@ -702,7 +754,7 @@ exports.tests = [
     res: {
       es5shim: true,
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: true,
       safaritp: true,
       webkit: true,
@@ -723,7 +775,7 @@ exports.tests = [
     res: {
       es5shim: sparseNote,
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: true,
       safaritp: true,
       webkit: true,
@@ -744,7 +796,7 @@ exports.tests = [
     res: {
       es5shim: sparseNote,
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: true,
       safaritp: true,
       webkit: true,
@@ -765,7 +817,7 @@ exports.tests = [
     res: {
       es5shim: sparseNote,
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: true,
       safaritp: true,
       webkit: true,
@@ -786,7 +838,7 @@ exports.tests = [
     res: {
       es5shim: sparseNote,
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: true,
       safaritp: true,
       webkit: true,
@@ -807,7 +859,7 @@ exports.tests = [
     res: {
       es5shim: sparseNote,
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: true,
       safaritp: true,
       webkit: true,
@@ -874,7 +926,7 @@ exports.tests = [
     res: {
       ie7: false,
       ie8: true,
-      firefox3: true,
+      firefox2: true,
       safari3: true,
       safaritp: true,
       webkit: true,
@@ -945,7 +997,7 @@ exports.tests = [
     res: {
       es5shim: true,
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari4: true,
       safaritp: true,
       webkit: true,
@@ -971,6 +1023,7 @@ exports.tests = [
       es5shim: true,
       ie9: true,
       firefox4: true,
+      safari10: true,
       safaritp: true,
       webkit: true,
       chrome5: true,
@@ -1157,7 +1210,7 @@ exports.tests = [
     res: {
       es5shim: true,
       ie9: true,
-      firefox21: true,
+      firefox5: true,
       opera10_10: null,
       opera10_50: true,
       konq43: null,
@@ -1199,29 +1252,6 @@ exports.tests = [
     },
   },
   {
-    name: 'Date.parse produces NaN for invalid dates',
-    exec: function () {
-      var brokenOnFirefox = !isNaN(Date.parse('2012-04-04T24:00:00.500Z'));
-      var brokenOnIE10 = !isNaN(Date.parse('2012-12-31T24:01:00.000Z'));
-      var brokenOnChrome = !isNaN(Date.parse('2011-02-29T12:00:00.000Z'));
-      return !brokenOnFirefox && !brokenOnIE10 && !brokenOnChrome;
-    },
-    res: {
-      es5shim: true,
-      firefox3: true,
-      firefox4: false,
-      safari4: true,
-      safaritp: true,
-      webkit: true,
-      opera10_10: true,
-      konq43: true,
-      besen: true,
-      rhino: true,
-      ejs: true,
-      android40: true,
-    }
-  },
-  {
     name: 'Function.prototype.apply permits array-likes',
     exec: function () {
       return (function(a,b) { return a === 1 && b === 2; }).apply({}, {0:1, 1:2, length:2});
@@ -1253,7 +1283,7 @@ exports.tests = [
     res: {
       es5shim: true,
       ie9: true,
-      firefox3: false,
+      firefox2: false,
       firefox21: true,
       safari6: true,
       safaritp: true,
@@ -1277,7 +1307,7 @@ exports.tests = [
     res: {
       ie7: null,
       ie9: true,
-      firefox4: true,
+      firefox3_6: true,
       safari3: null,
       safari4: true,
       safaritp: true,
@@ -1322,20 +1352,15 @@ exports.tests = [
   },
   {
     name: 'Zero-width chars in identifiers',
-    significance: 'tiny',
     exec: function () {/*
       var _\u200c\u200d = true;
       return _\u200c\u200d;
     */},
     res: {
       ie9: true,
-      firefox3: false,
+      firefox2: false,
       firefox3_5: false,
-      firefox4: {
-        val: true,
-        note_id: 'zero-width-char',
-        note_html: 'Firefox 4 &amp; 5 fail this test'
-      },
+      firefox8: true,
       firefox21: true,
       safari6: true,
       safaritp: true,
@@ -1355,7 +1380,6 @@ exports.tests = [
   },
   {
     name: 'Unreserved words',
-    significance: 'tiny',
     exec: function () {/*
       var abstract, boolean, byte, char, double, final, float, goto, int, long,
         native, short, synchronized, transient, volatile;
@@ -1364,7 +1388,7 @@ exports.tests = [
     res: {
       ie7: null,
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: null,
       safari4: true,
       safaritp: true,
@@ -1382,7 +1406,6 @@ exports.tests = [
   },
   {
     name: 'Enumerable properties can be shadowed by non-enumerables',
-    significance: 'tiny',
     exec: function () {/*
       var result = true;
       Object.prototype.length = 42;
@@ -1397,10 +1420,12 @@ exports.tests = [
     res: {
       ie7: null,
       ie9: false,
-      firefox3: true,
+      edge13: true,
+      firefox2: true,
       safari3: false,
       chrome5: false,
       chrome13: false,
+      chrome54: true,
       opera10_10: null,
       opera10_50: true,
       konq43: null,
@@ -1424,7 +1449,7 @@ exports.tests = [
     res: {
       ie7: null,
       ie9: true,
-      firefox3: true,
+      firefox2: true,
       safari3: null,
       safari4: true,
       safaritp: true,
@@ -1443,47 +1468,234 @@ exports.tests = [
 {
   name: 'Strict mode',
   significance: 'large',
-  link: '../strict-mode/',
-  exec: function () {
-    "use strict";
-    return !this;
+  subtests: [
+  {
+    name: 'reserved words',
+    exec: function() {/*
+      'use strict';
+      var words = 'implements,interface,let,package,private,protected,public,static,yield'.split(',');
+      for (var i = 0; i < 9; i+=1) {
+        try { eval('var ' + words[i]); return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      }
+      return true;
+    */},
+    res: (temp.strict = {
+      ie10: true,
+      firefox4: true,
+      safari51: true,
+      safaritp: true,
+      webkit: true,
+      chrome13: true,
+      opera12: true,
+      besen: true,
+      phantom: true,
+      ejs: true,
+      ios78: true,
+      android41: true,
+    }),
   },
-  res: {
-    ie7: false,
-    ie8: false,
-    ie9: false,
-    ie10: {
-      val: true,
-      note_id: 'strict-mode-ie10',
-      note_html: 'IE10 PP2 has a bug with strict mode which makes the following expression "fail", even though strict mode is more or less supported: <code>(function(){ "use strict"; return !this })()</code>'
-    },
-    firefox3: false,
-    firefox3_5: false,
-    firefox4: true,
-    firefox21: {
-      val: true,
-      note_id: 'strict-mode-ff21',
-      note_html: 'In Firefox, strict getters on String, Boolean and Number prototypes receive wrapped <code>this</code> values (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=603201">Bugzilla reference</a>).'
-    },
-    safari51: true,
-    safaritp: true,
-    webkit: true,
-    chrome5: false,
-    chrome6: false,
-    chrome7: false,
-    chrome13: true,
-    chrome19: true,
-    chrome23: true,
-    opera12: true,
-    konq43: false,
-    konq49: false,
-    konq413: false,
-    besen: true,
-    rhino: false,
-    phantom: true,
-    ejs: true,
-    ios78: true,
-    android41: true,
-  }
+  {
+    name: '"this" is undefined in functions',
+    exec: function() {/*
+      'use strict';
+      return this === undefined && (function(){ return this === undefined; }).call();
+    */},
+    res: Object.assign({}, temp.strict, {
+      ie10: {
+        val: true,
+        note_id: 'strict-mode-ie10',
+        note_html: 'IE10 PP2 fails this test.</code>'
+      }
+    }),
+  },
+  {
+    name: '"this" is not coerced to object in primitive methods',
+    exec: function() {/*
+      'use strict';
+      return (function(){ return typeof this === 'string' }).call('')
+        && (function(){ return typeof this === 'number' }).call(1)
+        && (function(){ return typeof this === 'boolean' }).call(true);
+    */},
+    res: temp.strict,
+  },
+  {
+    name: '"this" is not coerced to object in primitive accessors',
+    exec: function() {/*
+      'use strict';
+
+      function test(Class, instance) {
+        Object.defineProperty(Class.prototype, 'test', {
+          get: function () { passed = passed && this === instance; },
+          set: function () { passed = passed && this === instance; },
+          configurable: true
+        });
+
+        var passed = true;
+        instance.test;
+        instance.test = 42;
+        return passed;
+      }
+
+      return test(String, '')
+        && test(Number, 1)
+        && test(Boolean, true);
+    */},
+    res: Object.assign({}, temp.strict, {
+      firefox4: false,
+      firefox46: true,
+    }),
+  },
+  {
+    name: 'legacy octal is a SyntaxError',
+    exec: function() {/*
+      'use strict';
+      try { eval('010');     return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      try { eval('"\\010"'); return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      return true;
+    */},
+    res: temp.strict,
+  },
+  {
+    name: 'assignment to unresolvable identifiers is a ReferenceError',
+    exec: function() {/*
+      'use strict';
+      try { eval('__i_dont_exist = 1'); } catch (err) { return err instanceof ReferenceError; }
+    */},
+    res: temp.strict,
+  },
+  {
+    name: 'assignment to eval or arguments is a SyntaxError',
+    exec: function() {/*
+      'use strict';
+      try { eval('eval = 1');      return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      try { eval('arguments = 1'); return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      try { eval('eval++');        return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      try { eval('arguments++');   return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      return true;
+    */},
+    res: temp.strict,
+  },
+  {
+    name: 'assignment to non-writable properties is a TypeError',
+    exec: function() {/*
+      'use strict';
+      try { Object.defineProperty({},"x",{ writable: false }).x = 1; return false; } catch (err) { if (!(err instanceof TypeError)) return false; }
+      try { Object.preventExtensions({}).x = 1;                      return false; } catch (err) { if (!(err instanceof TypeError)) return false; }
+      try { ({ get x(){ } }).x = 1;                                  return false; } catch (err) { if (!(err instanceof TypeError)) return false; }
+      try { (function f() { f = 123; })();                           return false; } catch (err) { if (!(err instanceof TypeError)) return false; }
+      return true;
+    */},
+    res: temp.strict,
+  },
+  {
+    name: 'eval or arguments bindings is a SyntaxError',
+    exec: function() {/*
+      'use strict';
+      try { eval('var eval');                return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      try { eval('var arguments');           return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      try { eval('(function(eval){})');      return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      try { eval('(function(arguments){})'); return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      try { eval('try{}catch(eval){}');      return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      try { eval('try{}catch(arguments){}'); return false; } catch (err) { if (!(err instanceof SyntaxError)) return false; }
+      return true;
+    */},
+    res: temp.strict,
+  },
+  {
+    name: 'arguments.caller and arguments.callee is a TypeError',
+    exec: function() {/*
+      'use strict';
+      try { arguments.caller; return false; } catch (err) { if (!(err instanceof TypeError)) return false; }
+      try { arguments.callee; return false; } catch (err) { if (!(err instanceof TypeError)) return false; }
+      return true;
+    */},
+    res: temp.strict,
+  },
+  {
+    name: '(function(){}).caller and (function(){}).arguments is a TypeError',
+    exec: function() {/*
+      'use strict';
+      try { (function(){}).caller;    return false; } catch (err) { if (!(err instanceof TypeError)) return false; }
+      try { (function(){}).arguments; return false; } catch (err) { if (!(err instanceof TypeError)) return false; }
+      return true;
+    */},
+    res: temp.strict,
+  },
+  {
+    name: 'arguments is unmapped',
+    exec: function() {/*
+      'use strict';
+      return (function(x){
+        x = 2;
+        return arguments[0] === 1;
+      })(1) && (function(x){
+        arguments[0] = 2;
+        return x === 1;
+      })(1);
+    */},
+    res: temp.strict,
+  },
+  {
+    name: 'eval() can\'t create bindings',
+    exec: function() {/*
+      'use strict';
+      try { eval('var __some_unique_variable;'); __some_unique_variable; } catch (err) { return err instanceof ReferenceError; }
+    */},
+    res: temp.strict,
+  },
+  {
+    name: 'deleting bindings is a SyntaxError',
+    exec: function() {/*
+      'use strict';
+      try { eval('var x; delete x;'); } catch (err) { return err instanceof SyntaxError; }
+    */},
+    res: temp.strict,
+  },
+  {
+    name: 'deleting non-configurable properties is a TypeError',
+    exec: function() {/*
+      'use strict';
+      try { delete Object.prototype; } catch (err) { return err instanceof TypeError; }
+    */},
+    res: temp.strict,
+  },
+  {
+    name: '"with" is a SyntaxError',
+    exec: function() {/*
+      'use strict';
+      try { eval('with({}){}'); } catch (err) { return err instanceof SyntaxError; }
+    */},
+    res: temp.strict,
+  },
+  {
+    name: 'repeated parameter names is a SyntaxError',
+    exec: function() {/*
+      'use strict';
+      try { eval('function f(x, x) { }'); } catch (err) { return err instanceof SyntaxError; }
+    */},
+    res: temp.strict,
+  },
+  {
+    name: 'function expressions with matching name and argument are valid',
+    exec: function() {/*
+      var foo = function bar(bar) {'use strict'};
+      return typeof foo === 'function';
+    */},
+    res: {
+      ie10: true,
+      firefox2: true,
+      safari51: false,
+      safari10: true,
+      safaritp: true,
+      webkit: true,
+      chrome13: true,
+      opera12: true,
+      besen: true,
+      phantom: true,
+      ejs: true,
+      ios78: true,
+      android41: true,
+    }
+  }]
 }
 ];
