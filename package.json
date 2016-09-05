@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
   "dependencies": {
-    "acorn": "^2.0.4",
+    "acorn": "^3.3.0",
     "globby": "^4.1.0",
     "mkdirp": "^0.5.1",
     "object.assign": "^4.0.4"
