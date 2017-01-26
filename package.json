@@ -4,10 +4,9 @@
   "description": "ECMAScript feature and API detection",
   "main": "index.js",
   "scripts": {
-    "test": "node tester.js",
     "build": "node task/build.js",
     "prepublish": "npm run build",
-    "caniuse:win": "(if exist .\\caniuse rd .\\caniuse /s /q) & md .\\caniuse & powershell -command \"& { foreach($i in @(5,6)) { iwr https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es$i.js -OutFile caniuse/es$i.js }}\""
+    "test": "node tester.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +17,8 @@
     "es2015",
     "echmascript",
     "featuretest",
-    "caniuse"
+    "caniuse",
+    "compat-table"
   ],
   "author": "Toke Voltelen <tokevoltelen@gmail.com>",
   "license": "MIT",
@@ -28,6 +28,9 @@
   "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
   "dependencies": {
     "acorn": "^3.3.0",
+    "browserslist": "^1.6.0",
+    "caniuse-db": "^1.0.30000617",
+    "compat-table": "git+https://github.com/kangax/compat-table.git#gh-pages",
     "globby": "^4.1.0",
     "mkdirp": "^0.5.1"
   },
