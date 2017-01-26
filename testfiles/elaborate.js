@@ -4,7 +4,6 @@ import * as all from 'something';
 
 const exportMe = 'val';
 export default function exp() {};
-export default function exp() {};
 export { exportMe as exported };
 export const _var = 42;
 
@@ -80,7 +79,8 @@ function ctm(b, c) {
 ctm`d${1}`;
 
 // Destructuring
-const [a,b,u]=[1,2], {c,d:e,e:{f:g}}={c:1,d:2, e:{f:3}};
+const [a,b,u]=[1,2];
+const {c, d:e, e:{f:g}, h='i'} = {c:1,d:2, e:{f:3}};
 
 function dsArr([b,c]){}
 function dsObj({b,c}){}
