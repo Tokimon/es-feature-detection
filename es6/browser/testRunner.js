@@ -16,8 +16,9 @@ function isArray(arr) {
 }
 
 export default function testRunner(tests, ignore) {
-  const syntaxTests = { __fullES6Support: true };
+  const syntaxTests = {};
 
+  let allOK = true;
   for(const key in tests) {
     if(ignore.indexOf(key) >= 0) { continue; }
 
@@ -31,8 +32,8 @@ export default function testRunner(tests, ignore) {
     }
 
     syntaxTests[key] = ok;
-    if(!ok) { syntaxTests.__fullES6Support = false; }
+    if(!ok) { allOK = false; }
   }
 
-  return syntaxTests;
+  return allOK ? true : syntaxTests;
 }
