@@ -12,25 +12,29 @@ function runTest(script) {
 }
 
 export default function testRunner(tests, ignore) {
-  return Object.keys(tests)
-    .reduce((obj, key) => {
-      if(ignore.indexOf(key) >= 0) {
-        return obj;
+  const syntaxTests = { __fullES6Support: true };
+
+  for(const key in tests) {
+    if(ignore.indexOf(key) >= 0) { continue; }
+
+    const test = tests[key];
+
+    let ok = true;
+    // If the test is only a string, just run it
+    if(!Array.isArray(test)) {
+      ok = runTest(test);
+
+    // If the entry is an array, loop through each entry and validate them
+    } else {
+      for(let i = 0, l = test.length; i < l && ok; i++) {
+        const entry = test[i];
+        ok = entry.constructor !== Array ? runTest(entry) : runTest(entry[0], entry[1]);
       }
+    }
 
-      const test = tests[key];
+    syntaxTests[key] = ok;
+    if(!ok) { syntaxTests.fullSupport = false; }
+  }
 
-      // If the test is only a string, just run it
-      if(!Array.isArray(test)) {
-        obj[key] = runTest(test);
-
-      // If the entry is an array, loop through each entry and validate them
-      } else {
-        obj[key] = test.every(
-          (entry) => !Array.isArray(entry) ? runTest(entry) : runTest(entry[0], entry[1])
-        );
-      }
-
-      return obj;
-    }, {});
+  return syntaxTests;
 }

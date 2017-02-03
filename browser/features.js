@@ -52,7 +52,7 @@ export default function features() {
       'is': typeof Object.is === 'function',
       'keys': typeof Object.keys === 'function',
       'setPrototypeOf': typeof Object.setPrototypeOf === 'function',
-      'values': typeof Object.values === 'function',
+      'values': typeof Object.values === 'function'
     },
 
     'String': {
@@ -68,11 +68,11 @@ export default function features() {
       'search': typeof ''.search === 'function',
       'startsWith': typeof ''.startsWith === 'function',
       'trim': typeof ''.trim === 'function',
-      'raw': typeof String.raw === 'function',
+      'raw': typeof String.raw === 'function'
     },
 
     'Function': {
-      'bind': typeof (function() {}).bind === 'function'
+      'bind': typeof function() {}.bind === 'function'
     },
 
     'JSON': {
@@ -84,7 +84,7 @@ export default function features() {
     'Date': {
       'now': typeof Date.now === 'function',
       'toISOString': typeof (new Date()).toISOString === 'function',
-      'toJSON': typeof (new Date()).toJSON === 'function',
+      'toJSON': typeof (new Date()).toJSON === 'function'
     },
 
     'ArrayBufferView': typeof window.ArrayBufferView === 'function',
