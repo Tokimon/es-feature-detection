@@ -20,7 +20,7 @@ const tests = {
   ],
   constants: {
     script: 'const a=1; a=2',
-    onerror(ex) { ex.name === 'TypeError' || ex.message.indexOf('const') > -1; }
+    onerror(ex) { return ex.name === 'TypeError' || ex.message.indexOf('const') > -1; }
   },
   customStrinInterpolation: 'function a(b, c) {return b[0]+c} if(a`d${1}` !== "d1") throw 0',
   defaultParam: 'function a(b=1) {}',
