@@ -1,3 +1,5 @@
+/* eslint-disable no-template-curly-in-string */
+
 import testRunner from './testRunner';
 
 const tests = {
