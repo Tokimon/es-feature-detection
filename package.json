@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node tester.js",
+    "build": "node task/build.js",
+    "prepublish": "npm run build",
     "caniuse:win": "(if exist .\\caniuse rd .\\caniuse /s /q) & md .\\caniuse & powershell -command \"& { foreach($i in @(5,6)) { iwr https://raw.githubusercontent.com/kangax/compat-table/gh-pages/data-es$i.js -OutFile caniuse/es$i.js }}\""
   },
   "repository": {
@@ -27,7 +29,13 @@
   "dependencies": {
     "acorn": "^3.3.0",
     "globby": "^4.1.0",
-    "mkdirp": "^0.5.1",
-    "object.assign": "^4.0.4"
+    "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "object.assign": "^4.0.4",
+    "rollup": "^0.43.0",
+    "rollup-plugin-babel": "^2.7.1"
   }
 }
