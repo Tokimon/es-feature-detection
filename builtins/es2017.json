@@ -1,0 +1,12 @@
+{
+  "Object.values": "typeof Object.values !== 'undefined'",
+  "Object.entries": "typeof Object.entries !== 'undefined'",
+  "Object.getOwnPropertyDescriptors": "typeof Object.getOwnPropertyDescriptors !== 'undefined'",
+
+  "String.prototype.padEnd": "typeof String.prototype.padEnd !== 'undefined'",
+  "String.prototype.padStart": "typeof String.prototype.padStart !== 'undefined'",
+
+  "SharedArrayBuffer": "typeof SharedArrayBuffer !== 'undefined'",
+
+  "Atomics": "typeof Atomics !== 'undefined'"
+}

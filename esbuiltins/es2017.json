@@ -1,9 +1,0 @@
-{
-  "Object.values": "",
-  "Object.entries": "",
-  "Object.getOwnPropertyDescriptors": "",
-  "String.prototype.padEnd": "",
-  "String.prototype.padStart": "",
-  "SharedArrayBuffer": "",
-  "Atomics": ""
-}
