@@ -11,10 +11,14 @@
   "keywords": [
     "es6",
     "es2015",
+    "es2016",
+    "es2017",
     "echmascript",
     "featuretest",
-    "caniuse",
-    "compat-table"
+    "syntax",
+    "api",
+    "polyfill",
+    "builtin"
   ],
   "author": "Toke Voltelen <tokevoltelen@gmail.com>",
   "license": "MIT",
