@@ -1,3 +1,4 @@
+var assign = require('lodash.assign');
 var testrunner = require('../lib/testrunner').testRunner;
 
 var es2015 = require('./es2015.json');
@@ -11,7 +12,7 @@ function builtins() {
   var es2017Test = testrunner(es2017, 'es2017');
   var localizationTest = testrunner(localization, 'localization');
 
-  var result = Object.assign({
+  var result = assign({
     es2015: es2015Test,
     es2016: es2016Test,
     es2017: es2017Test,
@@ -23,4 +24,4 @@ function builtins() {
   return result;
 }
 
-module.exports = { builtins };
+module.exports = { builtins: builtins };

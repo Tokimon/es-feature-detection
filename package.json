@@ -26,6 +26,8 @@
     "url": "https://github.com/Tokimon/es-feature-detection/issues"
   },
   "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
-  "dependencies": {},
+  "dependencies": {
+    "lodash.assign": "^4.2.0"
+  },
   "devDependencies": {}
 }

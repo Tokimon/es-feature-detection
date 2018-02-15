@@ -1,3 +1,4 @@
+var assign = require('lodash.assign');
 var testrunner = require('../lib/testrunner').testRunner;
 
 var es2015 = require('./es2015.json');
@@ -9,7 +10,7 @@ function syntax() {
   var es2016Test = testrunner(es2016, 'es2015');
   var es2017Test = testrunner(es2017, 'es2015');
 
-  var result = Object.assign({
+  var result = assign({
     es2015: es2015Test,
     es2016: es2016Test,
     es2017: es2017Test
@@ -20,4 +21,4 @@ function syntax() {
   return result;
 }
 
-module.exports = { syntax };
+module.exports = { syntax: syntax };
