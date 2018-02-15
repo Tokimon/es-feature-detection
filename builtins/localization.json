@@ -1,0 +1,5 @@
+{
+  "Intl": "typeof Intl !== 'undefined'",
+  "NumberFormat": "typeof NumberFormat !== 'undefined'",
+  "DateTimeFormat": "typeof DateTimeFormat !== 'undefined'"
+}

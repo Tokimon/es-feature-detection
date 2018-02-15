@@ -34,5 +34,4 @@ node_modules
 
 # Custom folders
 out
-/lib
 /browser

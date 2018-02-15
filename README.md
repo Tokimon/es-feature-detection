@@ -1,7 +1,43 @@
 # es-feature-detection
 ECMAScript feature and API detection in the browser.
 
-## The why?
+It detects which syntax features and builtin components are supported in the current
+browser.
+
+## Installation
+
+```
+npm install es-feature-detection
+```
+
+## Usage
+Once the test is finished it returns an object with the features supported with
+subdivisions per ES version for convenience. A property `__all` is added to indicate
+whether all features are supported or not (also included in subdivisions).
+
+```javascript
+import { syntax, builtins } from 'es-feature-detection';
+
+const syntaxTest = syntax();
+
+if(syntaxTest.__all) {
+  // load you uncompiled script
+} else {
+  // Load you es5 script
+}
+
+const builtinsTest = builtins();
+
+if(!builtinsTest.__all) {
+  // load a polyfill for the missing functionality
+  // eg. Map
+  if(!builtinsTest.Map) {
+    // Load your polyfill
+  }
+}
+```
+
+## The reason for this module
 The idea behind this module is to facilitate the detection of what a given browser
 support of JS features. Does it support the ES6 syntax and what kind of polyfills
 would the browser need?
@@ -19,116 +55,8 @@ browsers already support the new syntax. Yes IE (edge) as well.
 Personally I needed a proper tool to detect features that was actually used in the script file,
 so I could decide what to load, so I build this.
 
-## The how?
-
-You can go about in several ways.
-
-### Raw browser detection methods
-You can use the raw feature detection scripts directly into a start up script as is via:
-
-```javascript
-import es6syntax from 'es-feature-detection/browser/es6syntax';
-import features from 'es-feature-detection/browser/features';
-
-if(es6syntax()) {
-  // load you uncompiled script
-} else {
-  // Load you es5 script
-}
-
-const apis = features();
-
-if(!apis.Object.assign) {
-  // load a polyfill for the missing functionality
-}
-```
-
-### Build custom feature detection file
-
-#### Detect used features
-
-If you are using some kind of build process you can detect the used features on beforehand, that you can use to determine which test you actually need to look at:
-
-```javascript
-const detectFeatures = require('es-feature-detection/lib/detectFeatures');
-
-detectFeatures(['script1', 'script2'])
-  .then((features) => {
-    // features = an array of features used
-    // eg. ['Array.from', 'Object.assign', 'Promise', 'Proxy', etc...]
-  });
-```
-
-#### Filter features according to your browser needs
-
-But this array can contain features that your target browsers may support anyway
-so we can look into the caniuse DB to see what kind of features we actually need
-to test for in target browsers:
-
-```javascript
-const detectFeatures = require('es-feature-detection/lib/detectFeatures');
-const filterFeatures = require('es-feature-detection/lib/filterFeatures');
-
-detectFeatures(['script1', 'script2'])
-  .then((features) => {
-    // features = ['Array.indexOf', 'Array.map', 'Object.assign', 'Promise', 'Proxy']
-    return filterFeatures(features, ['latest browsers', 'IE 10']);
-  })
-  .then((filteredFeatures) => {
-    // filteredFeatures = ['Object.assign', 'Promise', 'Proxy']
-  });
-```
-
-#### Create feature detection file
-
-Now we are getting somewhere, but we can do even better. Right now the feature script we include is still fairly large compared to our actual needs, so how about we cut down that
-script to only what we need:
-
-```javascript
-const detectFeatures = require('es-feature-detection/lib/detectFeatures');
-const filterFeatures = require('es-feature-detection/lib/filterFeatures');
-const writeScript = require('es-feature-detection/lib/featureTestParser').write;
-
-detectFeatures(['script1', 'script2'])
-  // features = ['Array.indexOf', 'Array.map', 'Object.assign', 'Promise', 'Proxy']
-  .then((features) => filterFeatures(features, ['latest browsers', 'IE 10']))
-  // filteredFeatures = ['Object.assign', 'Promise', 'Proxy']
-  .then((filteredFeatures) => composeScript(filteredFeatures, 'path/to/file.js'))
-  .then((writeStream) => {
-    // Do something with the write stream... or not...
-  });
-```
-
-#### Or create custom feature detection file
-
-You can also create you own custom file via the `compose` method
-
-```javascript
-const detectFeatures = require('es-feature-detection/lib/detectFeatures');
-const filterFeatures = require('es-feature-detection/lib/filterFeatures');
-const composeScript = require('es-feature-detection/lib/featureTestParser').compose;
-
-detectFeatures(['script1', 'script2'])
-  // features = ['Array.indexOf', 'Array.map', 'Object.assign', 'Promise', 'Proxy']
-  .then((features) => filterFeatures(features, ['latest browsers', 'IE 10']))
-  // filteredFeatures = ['Object.assign', 'Promise', 'Proxy']
-  .then((filteredFeatures) => composeScript(filteredFeatures))
-  .then((composedScript) => {
-    const writeStream = fs.createWriteStream('featuretest.js');
-    // The composed script contains of 2 parts:
-    // 1. the filtered feature list, that you can use as you want
-    writeStream.write(`const features = ['${composedScript.fetures.join("',''")}'];\n`);
-
-    // 2. The feature detection script lines
-    // fx. remove the export declaration as we don't need it
-    composedScript.lines[0] = composedScript.lines[0].replace('export default ', '');
-
-    // Write the lines to a file
-    writeStream.write(composedScript.lines.join('\n'));
-  });
-```
-
-Like that you have an optimized script to include in you page that can detect syntax and features of the browser of the user, so you can load just what you need and nothing more.
+## Why not just use babel-env?
+`babel-env` is really great tool and should definitely be the first choice, but I prefer to have two builds; one transpiled and one basically untranspiled and for that you need at least the `syntax` detection. Sometimes though you have modules (mostly 3rd party) that you don't want to run through the babel transpiler and as such some built in features that needs polyfilling is not detected and thus the polyfill not added, so having the `builtins` detection can be a good backup.
 
 ### Ideas?
-Have any ideas, improvement request or bugs you have found, don't hesitate to file an issue in the [issue list](https://github.com/Tokimon/es-feature-detection/issues) or throw me a PR if you have done some improvements you want to bring to the script.
+Have any ideas, improvement request or bugs you have found, don't hesitate to file an issue in the [issue list](https://github.com/Tokimon/es-feature-detection/issues) or throw me a [PR](https://github.com/Tokimon/es-feature-detection/pulls) if you have done some improvements you want to bring to the script.
