@@ -3,11 +3,7 @@
   "version": "1.0.8",
   "description": "ECMAScript feature and API detection",
   "main": "index.js",
-  "scripts": {
-    "build": "node task/build.js",
-    "prepublish": "npm run build",
-    "test": "node tester.js"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://Tokimon@github.com/Tokimon/es-feature-detection.git"
@@ -26,19 +22,6 @@
     "url": "https://github.com/Tokimon/es-feature-detection/issues"
   },
   "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
-  "dependencies": {
-    "acorn": "^3.3.0",
-    "browserslist": "^1.6.0",
-    "caniuse-db": "^1.0.30000617",
-    "compat-table": "git+https://github.com/kangax/compat-table.git#gh-pages",
-    "globby": "^4.1.0",
-    "mkdirp": "^0.5.1"
-  },
-  "devDependencies": {
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-es2015": "^6.24.1",
-    "object.assign": "^4.0.4",
-    "rollup": "^0.43.0",
-    "rollup-plugin-babel": "^2.7.1"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
