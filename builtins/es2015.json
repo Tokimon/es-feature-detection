@@ -7,8 +7,7 @@
   "Array.prototype.entries": "return typeof Array.prototype.entries !== 'undefined'",
   "Array.prototype.keys": "return typeof Array.prototype.keys !== 'undefined'",
   "Array.prototype.copyWithin": "return typeof Array.prototype.copyWithin !== 'undefined'",
-  "atob": "return typeof atob !== 'undefined'",
-  "btoa": "return typeof btoa !== 'undefined'",
+  "base64": "return typeof atob !== 'undefined' && typeof btoa !== 'undefined'",
 
   "Map": "return typeof Map !== 'undefined'",
   "Set": "return typeof Set !== 'undefined'",
@@ -51,6 +50,7 @@
   "Promise": "return typeof Promise !== 'undefined'",
   "Proxy": "return typeof Proxy !== 'undefined'",
   "Reflect": "return typeof Reflect !== 'undefined'",
+  "requestAnimationFrame": "return typeof requestAnimationFrame !== 'undefined' && typeof cancelAnimationFrame !== 'undefined'",
 
   "String.fromCodePoint": "return typeof String.fromCodePoint !== 'undefined'",
   "String.prototype.codePointAt": "return typeof String.prototype.codePointAt !== 'undefined'",
