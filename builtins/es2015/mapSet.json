@@ -1,0 +1,6 @@
+{
+  "Map": "return typeof Map !== 'undefined'",
+  "Set": "return typeof Set !== 'undefined'",
+  "WeekMap": "return typeof WeekMap !== 'undefined'",
+  "WeekSet": "return typeof WeekSet !== 'undefined'"
+}

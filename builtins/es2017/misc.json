@@ -1,0 +1,4 @@
+{
+  "Atomics": "return typeof Atomics !== 'undefined'",
+  "SharedArrayBuffer": "return typeof SharedArrayBuffer !== 'undefined'"
+}

@@ -1,0 +1,10 @@
+{
+  "String.fromCodePoint": "return typeof String.fromCodePoint !== 'undefined'",
+  "String.prototype.codePointAt": "return typeof String.prototype.codePointAt !== 'undefined'",
+  "String.prototype.startsWith": "return typeof String.prototype.startsWith !== 'undefined'",
+  "String.prototype.endsWith": "return typeof String.prototype.endsWith !== 'undefined'",
+  "String.prototype.includes": "return typeof String.prototype.includes !== 'undefined'",
+  "String.prototype.repeat": "return typeof String.prototype.repeat !== 'undefined'",
+  "String.prototype.normalize": "return typeof String.prototype.normalize !== 'undefined'",
+  "String.raw": "return typeof String.raw !== 'undefined'"
+}

@@ -1,0 +1,9 @@
+{
+  "base64": "return typeof atob !== 'undefined' && typeof btoa !== 'undefined'",
+  "Promise": "return typeof Promise !== 'undefined'",
+  "Proxy": "return typeof Proxy !== 'undefined'",
+  "Reflect": "return typeof Reflect !== 'undefined'",
+  "requestAnimationFrame": "return typeof requestAnimationFrame !== 'undefined' && typeof cancelAnimationFrame !== 'undefined'",
+  "Symbol": "return typeof Symbol !== 'undefined'",
+  "new.target": "(function() { return new.target })()"
+}

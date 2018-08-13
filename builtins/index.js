@@ -1,10 +1,10 @@
-var assign = require('lodash.assign');
+var assign = require('../lib/assign');
 var testrunner = require('../lib/testrunner').testRunner;
 
-var es2015 = require('./es2015.json');
-var es2016 = require('./es2016.json');
-var es2017 = require('./es2017.json');
-var localization = require('./localization.json');
+var es2015 = require('./es2015');
+var es2016 = require('./es2016');
+var es2017 = require('./es2017');
+var localization = require('./localization');
 
 function builtins() {
   var es2015Test = testrunner(es2015, 'es2015');
