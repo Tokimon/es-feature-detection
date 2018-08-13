@@ -1,5 +1,5 @@
-var assign = require('lodash.assign');
 var testrunner = require('../lib/testrunner').testRunner;
+var assign = require('../lib/assign');
 
 var es2015 = require('./es2015.json');
 var es2016 = require('./es2016.json');
