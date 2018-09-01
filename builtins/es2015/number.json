@@ -1,6 +1,6 @@
 {
   "Number.isNaN": "return typeof Number.isNaN !== 'undefined'",
-  "Number.isFininte": "return typeof Number.isFininte !== 'undefined'",
+  "Number.isFinite": "return typeof Number.isFinite !== 'undefined'",
   "Number.isInteger": "return typeof Number.isInteger !== 'undefined'",
   "Number.parseInt": "return typeof Number.parseInt !== 'undefined'",
   "Number.parseFloat": "return typeof Number.parseFloat !== 'undefined'",
