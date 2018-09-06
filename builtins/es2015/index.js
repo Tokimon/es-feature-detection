@@ -9,5 +9,5 @@ module.exports = assign(
   require('./number.json'),
   require('./object.json'),
   require('./string.json'),
-  require('./typedarray.json')
+  require('./typedarrays.json')
 );
