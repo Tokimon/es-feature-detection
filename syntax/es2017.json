@@ -1,4 +1,4 @@
 {
-  "async/await": "async function f(){await Promise.resolve(42)}",
-  "Trailing parameter commas": "function f(a,b,){}"
+  "async/await": "async function f(){var a = await Promise.resolve(42);return a}",
+  "Trailing parameter commas": "function f(a,b,){};f()"
 }
