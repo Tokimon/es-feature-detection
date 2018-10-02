@@ -7,10 +7,10 @@ var es2017 = require('./es2017');
 var localization = require('./localization');
 
 function builtins() {
-  var es2015Test = testrunner(es2015, 'es2015');
-  var es2016Test = testrunner(es2016, 'es2016');
-  var es2017Test = testrunner(es2017, 'es2017');
-  var localizationTest = testrunner(localization, 'localization');
+  var es2015Test = testrunner(es2015);
+  var es2016Test = testrunner(es2016);
+  var es2017Test = testrunner(es2017);
+  var localizationTest = testrunner(localization);
 
   var result = assign({
     es2015: es2015Test,
