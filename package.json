@@ -4,7 +4,9 @@
   "description": "ECMAScript feature and API detection",
   "main": "index.js",
   "sideEffects": false,
-  "scripts": {},
+  "scripts": {
+    "test": "tape tests/**/*.test.js | tap-spec"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://Tokimon@github.com/Tokimon/es-feature-detection.git"
@@ -14,8 +16,10 @@
     "es2015",
     "es2016",
     "es2017",
+    "es2018",
+    "es2019",
     "echmascript",
-    "featuretest",
+    "feature detection",
     "syntax",
     "api",
     "polyfill",
@@ -28,5 +32,9 @@
   },
   "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "tap-dot": "^2.0.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
+  }
 }
