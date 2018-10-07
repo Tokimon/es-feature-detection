@@ -1,9 +1,7 @@
 {
   "for...of": "for(var i of [1,2,3]) {}",
-
   "RegExp.prototype.sticky": "return /.*/y.sticky === true",
   "RegExp.prototype.unicode": "return /\\u{61}/u.unicode === true",
-
   "const": "const b=42",
   "let": "let a=42",
   "Destructuring": "var {a:A,b:B=3}={a:1};var [a,b]=[1,2];",
