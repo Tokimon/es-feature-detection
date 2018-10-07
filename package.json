@@ -1,6 +1,6 @@
 {
   "name": "es-feature-detection",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "ECMAScript feature and API detection",
   "main": "index.js",
   "sideEffects": false,
