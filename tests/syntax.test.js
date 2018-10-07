@@ -2,7 +2,7 @@ const test = require('tape');
 const syntax = require('../syntax');
 const years = [];
 
-for (let year = 2015; year <= 2017; year++) {
+for (let year = 2015; year <= 2018; year++) {
   years.push(year);
 }
 
