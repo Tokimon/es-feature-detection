@@ -1,1 +1,1 @@
-module.exports = require('./Array.prototype.includes.json');
+module.exports = require('./array.includes.js');
