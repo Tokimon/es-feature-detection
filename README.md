@@ -1,4 +1,7 @@
 # es-feature-detection
+
+[![Build Status](https://travis-ci.org/Tokimon/es-feature-detection.svg?branch=master)](https://travis-ci.org/Tokimon/es-feature-detection)
+
 ECMAScript feature and API detection in the browser.
 
 It detects which syntax features and builtin components are supported in the current
@@ -15,15 +18,15 @@ Once the test is finished it returns an object with the features supported with
 subdivisions per ES version for convenience. A property `__all` is added to indicate
 whether all features are supported or not (also included in subdivisions).
 
-```javascript
+```js
 import { syntax, builtins } from 'es-feature-detection';
 
 const syntaxTest = syntax();
 
 if(syntaxTest.__all) {
-  // load you uncompiled script
+  // load your uncompiled script
 } else {
-  // Load you es5 script
+  // Load your es5 script
 }
 
 const builtinsTest = builtins();
@@ -36,6 +39,57 @@ if(!builtinsTest.__all) {
   }
 }
 ```
+
+### Only test certain features
+Sometimes you already know what you want to test for and as such don't need to
+test all ES XX features to see what your browser supports. In this case you can directly
+access the tests like so:
+
+```js
+import es2015Builtins from 'es-feature-detection/builtins/es2015';
+import es2015Syntax from 'es-feature-detection/syntax/es2015';
+
+if(!es2015Builtins().__all) {
+  // Load your polyfills
+}
+
+if(!es2015Syntax().__all) {
+  // Load your es5 script
+}
+```
+
+The same technique of cause goes for all ES versions.
+
+For builtins you can have even more granularity, by selecting which segments you need:
+
+```js
+import es2015Arrays from 'es-feature-detection/builtins/es2015/array';
+
+if(!es2015Arrays().__all) {
+  // Load your polyfills
+}
+```
+
+#### Built-ins segments
+A full list of the segments you can address directly:
+
+- *es2015*
+  - **array**
+  - **mapSet** (Map/Set)
+  - **math**
+  - **misc** (*Base64 en-/decoding*, *Promise*, *Proxy*, *Reflect*, *requestAnimationFrame*, *Symbol*, *new.target*)
+  - **number**
+  - **object**
+  - **string**
+  - **typedarray**
+- *es2016*
+  - **array.includes**
+- *es2017*
+  - **misc** (*Atomics*, *SharedArrayBuffer*)
+  - **object**
+  - **string**
+- *localization*
+  - **localization**
 
 ## The reason for this module
 The idea behind this module is to facilitate the detection of what a given browser
@@ -56,7 +110,13 @@ Personally I needed a proper tool to detect features that was actually used in t
 so I could decide what to load, so I build this.
 
 ## Why not just use babel-env?
-`babel-env` is really great tool and should definitely be the first choice, but I prefer to have two builds; one transpiled and one basically untranspiled and for that you need at least the `syntax` detection. Sometimes though you have modules (mostly 3rd party) that you don't want to run through the babel transpiler and as such some built in features that needs polyfilling is not detected and thus the polyfill not added, so having the `builtins` detection can be a good backup.
+`babel-env` is really great tool and should definitely be the first choice. Sometimes
+though you have modules (mostly 3rd party) that you don't want to run through the babel
+transpiler and as such may some built in features that needs polyfilling but are not detected.
+So having the `builtins` detection which tells you what polyfills you need to load can be a good backup.
+
+The `syntax` is usefull for when you want to have to separate builds. One for newer
+browsers that understand the new goodies. And one that use plain old ES 5 (\*cough\* IE).
 
 ### Ideas?
 Have any ideas, improvement request or bugs you have found, don't hesitate to file an issue in the [issue list](https://github.com/Tokimon/es-feature-detection/issues) or throw me a [PR](https://github.com/Tokimon/es-feature-detection/pulls) if you have done some improvements you want to bring to the script.
