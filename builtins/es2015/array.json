@@ -1,10 +1,10 @@
 {
   "Array.from": "return typeof Array.from !== 'undefined'",
   "Array.of": "return typeof Array.of !== 'undefined'",
-  "Array.prototype.fill": "return typeof Array.prototype.fill !== 'undefined'",
-  "Array.prototype.find": "return typeof Array.prototype.find !== 'undefined'",
-  "Array.prototype.findIndex": "return typeof Array.prototype.findIndex !== 'undefined'",
-  "Array.prototype.entries": "return typeof Array.prototype.entries !== 'undefined'",
-  "Array.prototype.keys": "return typeof Array.prototype.keys !== 'undefined'",
-  "Array.prototype.copyWithin": "return typeof Array.prototype.copyWithin !== 'undefined'"
+  "Array.prototype.fill": "return typeof [].fill !== 'undefined'",
+  "Array.prototype.find": "return typeof [].find !== 'undefined'",
+  "Array.prototype.findIndex": "return typeof [].findIndex !== 'undefined'",
+  "Array.prototype.entries": "return typeof [].entries !== 'undefined'",
+  "Array.prototype.keys": "return typeof [].keys !== 'undefined'",
+  "Array.prototype.copyWithin": "return typeof [].copyWithin !== 'undefined'"
 }

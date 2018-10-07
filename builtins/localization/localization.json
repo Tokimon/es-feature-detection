@@ -1,5 +1,7 @@
 {
   "Intl": "typeof Intl !== 'undefined'",
-  "NumberFormat": "typeof NumberFormat !== 'undefined'",
-  "DateTimeFormat": "typeof DateTimeFormat !== 'undefined'"
+  "Intl.Collator": "typeof Intl.Collator !== 'undefined'",
+  "Intl.DateTimeFormat": "typeof Intl.DateTimeFormat !== 'undefined'",
+  "Intl.NumberFormat": "typeof Intl.NumberFormat !== 'undefined'",
+  "Intl.PluralRules": "typeof Intl.PluralRules !== 'undefined'"
 }

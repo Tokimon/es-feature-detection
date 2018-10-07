@@ -1,1 +1,1 @@
-module.exports = require('./localization.json');
+module.exports = require('./localization.js');

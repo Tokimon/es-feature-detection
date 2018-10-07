@@ -1,5 +1,5 @@
 {
-  "Object.prototype.__proto__": "return typeof Object.prototype.__proto__ !== 'undefined'",
+  "Object.prototype.__proto__": "return typeof ({}).__proto__ !== 'undefined'",
   "Object.is": "return typeof Object.is !== 'undefined'",
   "Object.setPrototypeOf": "return typeof Object.setPrototypeOf !== 'undefined'",
   "Object.assign": "return typeof Object.assign !== 'undefined'",

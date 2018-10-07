@@ -1,0 +1,3 @@
+{
+  "Optional Catch Binding": "try { throw '' } catch { return true; }"
+}

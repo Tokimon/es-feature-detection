@@ -1,4 +1,4 @@
 {
-  "String.prototype.padEnd": "return typeof String.prototype.padEnd !== 'undefined'",
-  "String.prototype.padStart": "return typeof String.prototype.padStart !== 'undefined'"
+  "String.prototype.padEnd": "return typeof ''.padEnd !== 'undefined'",
+  "String.prototype.padStart": "return typeof ''.padStart !== 'undefined'"
 }
