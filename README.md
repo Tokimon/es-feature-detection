@@ -110,13 +110,15 @@ Personally I needed a proper tool to detect features that was actually used in t
 so I could decide what to load, so I build this.
 
 ## Why not just use babel-env?
-`babel-env` is really great tool and should definitely be the first choice. Sometimes
-though you have modules (mostly 3rd party) that you don't want to run through the babel
-transpiler and as such may some built in features that needs polyfilling but are not detected.
-So having the `builtins` detection which tells you what polyfills you need to load can be a good backup.
+`babel-env` is really great tool and should definitely be the first choice. Sometimes,
+though, you might have some modules (mostly 3rd party) you don't want to run through
+the transpiler, but might use some built-in methods that are not necessarily
+supported by all browsers. In this case there are some polyfills that are not detected
+and added at compile-time.
+So having the `builtins` detection which can detect which polyfills you need to load can be a good backup.
 
-The `syntax` is usefull for when you want to have to separate builds. One for newer
-browsers that understand the new goodies. And one that use plain old ES 5 (\*cough\* IE).
+The `syntax` is useful for when you want to have two separate builds: One for newer
+browsers that understand the new goodies. And one that use plain old ES 5.
 
 ### Ideas?
 Have any ideas, improvement request or bugs you have found, don't hesitate to file an issue in the [issue list](https://github.com/Tokimon/es-feature-detection/issues) or throw me a [PR](https://github.com/Tokimon/es-feature-detection/pulls) if you have done some improvements you want to bring to the script.
