@@ -9,7 +9,7 @@ var object = require('./object.js');
 var string = require('./string.js');
 var typedarrays = require('./typedarrays.js');
 
-module.exports = () => {
+module.exports = function() {
   const arrayTest = array();
   const mapSetTest = mapSet();
   const mathTest = math();

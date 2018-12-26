@@ -15,8 +15,10 @@ const JSONs = sections.reduce((json, section) => {
 
   json[section] = jsonFiles
     .reduce((all, jsonFile) => {
+      const fileName = jsonFile.substring(jsonFile.lastIndexOf('/') + 1, jsonFile.length - 5);
       const subJson = require(jsonFile);
       const js = require(jsonFile.substring(0, jsonFile.length - 2));
+
       const subSection = basename(jsonFile, '.json');
 
       test(`BUILTINS - ${section}.${subSection}, export all tests defined in JSON`, (t) => {
@@ -25,10 +27,15 @@ const JSONs = sections.reduce((json, section) => {
 
         tests.push('__all');
 
-        const hasAll = Object.keys(js()).every((test) => tests.includes(test));
+        try {
+          const hasAll = Object.keys(js()).every((test) => tests.includes(test));
 
-        t.ok(hasAll, 'Has all keys defined in the JSON');
-        t.end();
+          t.ok(hasAll, 'Has all keys defined in the JSON');
+          t.end();
+        } catch (ex) {
+          console.error(ex);
+          t.end(`[${fileName}] Failed to export`);
+        }
       });
 
 

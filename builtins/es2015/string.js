@@ -1,2 +1,2 @@
 var testrunner = require('../../lib/testrunner').testRunner;
-module.exports = () => testrunner(require('./string.json'));
+module.exports = function() { return testrunner(require('./string.json')); };
