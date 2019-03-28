@@ -1,4 +1,4 @@
-module.exports = {
-  builtins: require('./builtins'),
-  syntax: require('./syntax')
-};
+import builtins from './builtins';
+import syntax from './syntax';
+
+export { builtins, syntax };

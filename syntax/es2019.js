@@ -1,6 +1,3 @@
-var testrunner = require('../lib/testrunner').testRunner;
-var es2019Tests = require('./es2019.json');
-
-module.exports = function es2019() {
-  return testrunner(es2019Tests);
-};
+import testRunner from '../lib/testRunner';
+import test from './es2019.json';
+export default () => testRunner(test);

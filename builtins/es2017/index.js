@@ -1,10 +1,10 @@
-var assign = require('../../lib/assign');
+import assign from '../../lib/assign';
 
-var misc = require('./misc.js');
-var object = require('./object.js');
-var string = require('./string.js');
+import misc from './misc.js';
+import object from './object.js';
+import string from './string.js';
 
-module.exports = () => {
+export default () => {
   const miscTest = misc();
   const objectTest = object();
   const stringTest = string();

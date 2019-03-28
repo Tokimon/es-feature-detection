@@ -1,2 +1,3 @@
-var testrunner = require('../../lib/testrunner').testRunner;
-module.exports = function() { return testrunner(require('./math.json')); };
+import testRunner from '../../lib/testRunner';
+import test from './math.json';
+export default () => testRunner(test);

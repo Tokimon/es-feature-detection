@@ -1,17 +1,17 @@
-var assign = require('../lib/assign');
+import assign from '../lib/assign';
 
-var es2015 = require('./es2015');
-var es2016 = require('./es2016');
-var es2017 = require('./es2017');
-var localization = require('./localization');
+import es2015 from './es2015';
+import es2016 from './es2016';
+import es2017 from './es2017';
+import localization from './localization';
 
-module.exports = function builtins() {
-  var es2015Test = es2015();
-  var es2016Test = es2016();
-  var es2017Test = es2017();
-  var localizationTest = localization();
+export default () => {
+  const es2015Test = es2015();
+  const es2016Test = es2016();
+  const es2017Test = es2017();
+  const localizationTest = localization();
 
-  var result = assign(
+  const result = assign(
     {
       es2015: es2015Test,
       es2016: es2016Test,

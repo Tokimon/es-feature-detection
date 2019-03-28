@@ -1,2 +1,3 @@
-var testrunner = require('../../lib/testrunner').testRunner;
-module.exports = function() { return testrunner(require('./string.json')); };
+import testRunner from '../../lib/testRunner';
+import test from './string.json';
+export default () => testRunner(test);

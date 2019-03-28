@@ -1,19 +1,19 @@
-var assign = require('../lib/assign');
+import assign from '../lib/assign';
 
-var es2015 = require('./es2015');
-var es2016 = require('./es2016');
-var es2017 = require('./es2017');
-var es2018 = require('./es2018');
-var es2019 = require('./es2019');
+import es2015 from './es2015';
+import es2016 from './es2016';
+import es2017 from './es2017';
+import es2018 from './es2018';
+import es2019 from './es2019';
 
-module.exports = function syntax() {
-  var es2015Test = es2015();
-  var es2016Test = es2016();
-  var es2017Test = es2017();
-  var es2018Test = es2018();
-  var es2019Test = es2019();
+export default () => {
+  const es2015Test = es2015();
+  const es2016Test = es2016();
+  const es2017Test = es2017();
+  const es2018Test = es2018();
+  const es2019Test = es2019();
 
-  var result = assign(
+  const result = assign(
     {
       es2015: es2015Test,
       es2016: es2016Test,

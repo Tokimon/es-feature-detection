@@ -1,5 +1,5 @@
-const test = require('tape');
-const { runTest, testRunner } = require('../../lib/testrunner');
+import test from 'tape';
+import testRunner, { runTest } from '../../lib/testRunner';
 
 
 

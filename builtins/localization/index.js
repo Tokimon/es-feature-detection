@@ -1,1 +1,2 @@
-module.exports = require('./localization.js');
+import localization from './localization.js';
+export default localization;

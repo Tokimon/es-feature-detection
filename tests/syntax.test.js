@@ -1,5 +1,6 @@
-const test = require('tape');
-const syntax = require('../syntax');
+import test from 'tape';
+import syntax from '../syntax';
+
 const years = [];
 
 for (let year = 2015; year <= 2018; year++) {
@@ -16,9 +17,15 @@ const JSONs = years.reduce((json, year) => {
 
     tests.push('__all');
 
-    const hasAll = Object.keys(require(jsPath)()).every((test) => tests.includes(test));
+    const runTest = require(jsPath).default;
 
-    t.ok(hasAll, 'Has all keys defined in the JSON');
+    if (typeof runTest === 'function') {
+      const hasAll = Object.keys(runTest()).every((test) => tests.includes(test));
+      t.ok(hasAll, 'Has all keys defined in the JSON');
+    } else {
+      t.fail(`${jsPath} does not export default`);
+    }
+
     t.end();
   });
 

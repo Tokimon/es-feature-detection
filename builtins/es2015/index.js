@@ -1,15 +1,15 @@
-var assign = require('../../lib/assign');
+import assign from '../../lib/assign';
 
-var array = require('./array.js');
-var mapSet = require('./mapSet.js');
-var math = require('./math.js');
-var misc = require('./misc.js');
-var number = require('./number.js');
-var object = require('./object.js');
-var string = require('./string.js');
-var typedarrays = require('./typedarrays.js');
+import array from './array.js';
+import mapSet from './mapSet.js';
+import math from './math.js';
+import misc from './misc.js';
+import number from './number.js';
+import object from './object.js';
+import string from './string.js';
+import typedarrays from './typedarrays.js';
 
-module.exports = function() {
+export default () => {
   const arrayTest = array();
   const mapSetTest = mapSet();
   const mathTest = math();

@@ -1,8 +1,9 @@
-const test = require('tape');
-const glob = require('glob');
-const { basename, resolve } = require('path');
+import test from 'tape';
+import glob from 'glob';
+import { basename, resolve } from 'path';
 
-const builtins = require('../builtins');
+import builtins from '../builtins';
+
 const sections = ['localization'];
 
 for (let year = 2015; year <= 2017; year++) {
@@ -17,7 +18,7 @@ const JSONs = sections.reduce((json, section) => {
     .reduce((all, jsonFile) => {
       const fileName = jsonFile.substring(jsonFile.lastIndexOf('/') + 1, jsonFile.length - 5);
       const subJson = require(jsonFile);
-      const js = require(jsonFile.substring(0, jsonFile.length - 2));
+      const js = require(jsonFile.substring(0, jsonFile.length - 2)).default;
 
       const subSection = basename(jsonFile, '.json');
 
@@ -48,9 +49,15 @@ const JSONs = sections.reduce((json, section) => {
 
     tests.push('__all');
 
-    const hasAll = Object.keys(require(path)()).every((test) => tests.includes(test));
+    const runTest = require(path).default;
 
-    t.ok(hasAll, 'Has all keys defined in the sub JSONs');
+    if (typeof runTest === 'function') {
+      const hasAll = Object.keys(runTest()).every((test) => tests.includes(test));
+      t.ok(hasAll, 'Has all keys defined in the sub JSONs');
+    } else {
+      t.fail(`${path} does not export default`);
+    }
+
     t.end();
   });
 

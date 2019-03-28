@@ -1,1 +1,2 @@
-module.exports = require('./array.includes.js');
+import arrayIncludes from './array.includes.js';
+export default arrayIncludes;
