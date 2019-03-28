@@ -1,11 +1,11 @@
 {
   "name": "es-feature-detection",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "ECMAScript feature and API detection",
   "main": "index.js",
   "sideEffects": false,
   "scripts": {
-    "test": "tape -r @babel/register tests/**/*.test.js | tap-spec"
+    "test": "tape -r @babel/register tests/**/*.test.js | tap-dot"
   },
   "repository": {
     "type": "git",
