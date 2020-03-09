@@ -1,0 +1,3 @@
+{
+  "CustomEvent": "new CustomEvent('test')"
+}
