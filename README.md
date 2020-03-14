@@ -1,10 +1,11 @@
 # es-feature-detection
 
 [![Build Status](https://travis-ci.org/Tokimon/es-feature-detection.svg?branch=master)](https://travis-ci.org/Tokimon/es-feature-detection)
+[![install size](https://packagephobia.now.sh/badge?p=es-feature-detection)](https://packagephobia.now.sh/result?p=es-feature-detection)
 
 ECMAScript feature and API detection in the browser.
 
-It detects which syntax features and builtin components are supported in the current
+It detects which syntax features and built-in components are supported in the current
 browser.
 
 ## Installation
@@ -70,26 +71,33 @@ if(!es2015Arrays().__all) {
 }
 ```
 
-#### Built-ins segments
-A full list of the segments you can address directly:
+#### Test sections
+A full list of the sections you can address directly:
 
-- *es2015*
-  - **array**
-  - **mapSet** (Map/Set)
-  - **math**
-  - **misc** (*Base64 en-/decoding*, *Promise*, *Proxy*, *Reflect*, *requestAnimationFrame*, *Symbol*, *new.target*)
-  - **number**
-  - **object**
-  - **string**
-  - **typedarray**
-- *es2016*
-  - **array.includes**
-- *es2017*
-  - **misc** (*Atomics*, *SharedArrayBuffer*)
-  - **object**
-  - **string**
-- *localization*
-  - **localization**
+- *builtins*
+  - *es2015*
+    - **array**
+    - **mapSet** (Map/Set)
+    - **math**
+    - **misc** (*Base64 en-/decoding*, *Promise*, *Proxy*, *Reflect*, *requestAnimationFrame*, *Symbol*, *new.target*)
+    - **number**
+    - **object**
+    - **string**
+    - **typedarray**
+  - *es2016*
+    - **array.includes**
+  - *es2017*
+    - **misc** (*Atomics*, *SharedArrayBuffer*)
+    - **object**
+    - **string**
+  - *localization*
+    - **localization**
+- *syntax*
+  - **es2015**
+  - **es2016**
+  - **es2017**
+  - **es2018**
+  - **es2019**
 
 ## The reason for this module
 The idea behind this module is to facilitate the detection of what a given browser
