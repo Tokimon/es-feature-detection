@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "target": "es5",
+    "lib": ["es5", "es6", "dom"],
+    "moduleResolution": "node",
+    "allowJs": false,
+    "outDir": ".",
+    "strictNullChecks": true
+  },
+
+  "include": [
+    "./builtins/**/*.ts",
+    "./syntax/**/*.ts",
+    "./utils/**/*.ts"
+  ],
+
+  "exclude": [
+    "./node_modules/**/*.ts",
+    "./node_modules/.*/**/*.ts"
+  ]
+}

@@ -39,12 +39,16 @@
   "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/plugin-transform-modules-commonjs": "^7.8.3",
-    "@babel/register": "^7.8.6",
-    "glob": "^7.1.6",
-    "tap-dot": "^2.0.0",
-    "tap-spec": "^5.0.0",
-    "tape": "^4.13.2"
+    "@babel/core": "7.8.7",
+    "@babel/plugin-transform-modules-commonjs": "7.8.3",
+    "@babel/register": "7.8.6",
+    "glob": "7.1.6",
+    "tap-dot": "2.0.0",
+    "tap-spec": "5.0.0",
+    "tape": "4.13.2",
+    "ts-node": "8.6.2",
+    "tslint": "6.1.0",
+    "tslint-config-semistandard": "8.0.1",
+    "typescript": "3.8.3"
   }
 }
