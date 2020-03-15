@@ -1,4 +1,0 @@
-{
-  "String.prototype.padEnd": "return typeof ''.padEnd !== 'undefined'",
-  "String.prototype.padStart": "return typeof ''.padStart !== 'undefined'"
-}

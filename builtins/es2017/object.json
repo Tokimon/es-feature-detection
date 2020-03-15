@@ -1,5 +1,0 @@
-{
-  "Object.values": "return typeof Object.values !== 'undefined'",
-  "Object.entries": "return typeof Object.entries !== 'undefined'",
-  "Object.getOwnPropertyDescriptors": "return typeof Object.getOwnPropertyDescriptors !== 'undefined'"
-}
