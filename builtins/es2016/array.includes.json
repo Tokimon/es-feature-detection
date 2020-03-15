@@ -1,4 +1,0 @@
-{
-  "Array.prototype.includes": "return typeof [].includes !== 'undefined'",
-  "TypedArray.prototype.includes": "return typeof (new Int8Array()).includes !== 'undefined' && typeof (new Uint8Array()).includes !== 'undefined' && typeof (new Uint8ClampedArray()).includes !== 'undefined' && typeof (new Int16Array()).includes !== 'undefined' && typeof (new Uint16Array()).includes !== 'undefined' && typeof (new Int32Array()).includes !== 'undefined' && typeof (new Uint32Array()).includes !== 'undefined' && typeof (new Float32Array()).includes !== 'undefined' && typeof (new Float64Array()).includes !== 'undefined'"
-}
