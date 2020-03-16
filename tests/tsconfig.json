@@ -1,28 +1,27 @@
 {
   "compilerOptions": {
-    "module": "es6",
+    "module": "commonjs",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": false,
-    "target": "es5",
+    "sourceMap": true,
+    "target": "es2017",
     "lib": ["es5", "es6", "dom"],
     "moduleResolution": "node",
     "allowJs": false,
-    "outDir": ".",
-    "strictNullChecks": true
+    "outDir": "."
   },
 
   "include": [
-    "./builtins/**/*.ts",
-    "./syntax/**/*.ts",
-    "./utils/**/*.ts"
+    "../builtins/*.ts",
+    "../syntax/*.ts",
+    "../utils/*.ts"
   ],
 
   "exclude": [
-    "./node_modules/**/*.ts",
-    "./node_modules/.*/**/*.ts"
+    "node_modules",
+    "../test/**/*.ts"
   ]
 }
