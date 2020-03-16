@@ -1,5 +1,4 @@
 {
-  "RegExp.prototype.dotAll": "return /.*/s.dotAll === true",
   "RegExp Named Capture Groups": "var r = /(?<a>a)\\k<a>/.exec('aa'); return r && r.groups.a === 'a'",
   "RegExp Lookbehind Assertions": "/(?<!a)b(?<=b)c/",
   "Object Spread Properties": "var a = {a:1}, b = {b:2}, c = { ...a, ...b }; var { ...d } = c;",
