@@ -1,4 +1,4 @@
 import testExpression from '../../utils/testExpression';
 
-export const expression = "return typeof UInt32Array !== 'undefined'";
+export const expression = "return typeof Uint32Array !== 'undefined'";
 export default () => testExpression(expression);
