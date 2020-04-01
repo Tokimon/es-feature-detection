@@ -6,7 +6,8 @@
   "sideEffects": false,
   "scripts": {
     "test:raw": "cross-env TS_NODE_PROJECT=./tests/tsconfig.json mocha --require ts-node/register tests/**/*.test.ts",
-    "test": "npm run test:raw -- --reporter dot"
+    "test": "npm run test:raw -- --reporter dot",
+    "build": "node ./lib/all.js"
   },
   "repository": {
     "type": "git",
@@ -38,7 +39,9 @@
     "url": "https://github.com/Tokimon/es-feature-detection/issues"
   },
   "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
-  "dependencies": {},
+  "dependencies": {
+    "camelcase": "^5.3.1"
+  },
   "devDependencies": {
     "@types/chai": "4.2.11",
     "@types/globby": "9.1.0",
