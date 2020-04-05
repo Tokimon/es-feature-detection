@@ -39,23 +39,22 @@
     "url": "https://github.com/Tokimon/es-feature-detection/issues"
   },
   "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
-  "dependencies": {
-    "camelcase": "^5.3.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/chai": "4.2.11",
     "@types/globby": "9.1.0",
     "@types/mocha": "7.0.2",
     "@types/mocha-each": "2.0.0",
-    "@types/node": "^13.9.1",
+    "@types/node": "13.11.0",
     "chai": "4.2.0",
     "cross-env": "7.0.2",
     "globby": "11.0.0",
-    "mocha": "7.1.0",
+    "mocha": "7.1.1",
     "mocha-each": "2.0.1",
-    "ts-node": "8.6.2",
-    "tslint": "6.1.0",
+    "ts-node": "8.8.2",
+    "tslint": "6.1.1",
     "tslint-config-semistandard": "8.0.1",
-    "typescript": "3.8.3"
+    "typescript": "3.8.3",
+    "vanillajs-helpers": "2.0.2"
   }
 }
