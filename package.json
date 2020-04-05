@@ -7,7 +7,11 @@
   "scripts": {
     "test:raw": "cross-env TS_NODE_PROJECT=./tests/tsconfig.json mocha --require ts-node/register tests/**/*.test.ts",
     "test": "npm run test:raw -- --reporter dot",
-    "build": "node ./lib/all.js"
+    "build": "node ./lib/all.js",
+    "compile": "tsc -p ./",
+    "clean": "node ./lib/clean.js",
+    "prepublish": "npm run build && npm run compile",
+    "postpublish": "npm run clean"
   },
   "repository": {
     "type": "git",

@@ -34,3 +34,6 @@ node_modules
 
 # Custom folders
 */index.ts
+*.d.ts
+*.js
+!lib/*.js

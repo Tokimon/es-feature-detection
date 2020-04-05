@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "es6",
+    "module": "commonjs",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
@@ -12,17 +12,18 @@
     "moduleResolution": "node",
     "allowJs": false,
     "outDir": ".",
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "declaration": true
   },
 
   "include": [
-    "./builtins/**/*.ts",
-    "./syntax/**/*.ts",
-    "./utils/**/*.ts"
+    "./**/*.ts",
+    "./*.ts"
   ],
 
   "exclude": [
     "./node_modules/**/*.ts",
-    "./node_modules/.*/**/*.ts"
+    "./node_modules/.*/**/*.ts",
+    "./tests/**/*.ts"
   ]
 }
