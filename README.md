@@ -66,7 +66,7 @@ placed in the `utils` folder, to validate a specific string (it is the one used 
 
 ```js
 import testExpression from 'es-feature-detection/utils/testExpression';
-// Even though the example is not inventive, it is there to illustrate how it might be used
+// Ok this is a lame example, but it illustrates how to use it
 const myFeatureIsSupported = testExpression('return MyFeature.someThingToTest()');
 ```
 
@@ -84,7 +84,7 @@ import allOk from 'es-feature-detection/utils/allOk';
 const fullES2020Support = allOk(es2020());
 ```
 
-These _esXX_ files includes both builtins and syntax features introduces in the given version.
+These **_esXX_** files includes both builtins and syntax features introduces in the given version.
 
 ## The reason for this module
 The idea behind this module is to facilitate the detection of what a given browser
@@ -116,7 +116,7 @@ to load can be a good backup.
 The `syntax` is useful for when you want to have two separate builds: One for newer
 browsers that understand the new goodies. And one that use plain old ES 5.
 
-### Ideas?
+## Ideas?
 Have any ideas, improvement request or bugs you have found, don't hesitate to file
 an issue in the [issue list](https://github.com/Tokimon/es-feature-detection/issues)
 or throw me a [PR](https://github.com/Tokimon/es-feature-detection/pulls) if you
