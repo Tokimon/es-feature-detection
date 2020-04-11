@@ -1,95 +1,90 @@
 # es-feature-detection
 
 [![Build Status](https://travis-ci.org/Tokimon/es-feature-detection.svg?branch=master)](https://travis-ci.org/Tokimon/es-feature-detection)
+[![install size](https://packagephobia.now.sh/badge?p=es-feature-detection)](https://packagephobia.now.sh/result?p=es-feature-detection)
 
 ECMAScript feature and API detection in the browser.
 
-It detects which syntax features and builtin components are supported in the current
+It detects which syntax features and built-in components are supported in the current
 browser.
 
 ## Installation
 
 ```
-npm install es-feature-detection
+npm i es-feature-detection
 ```
 
-## Usage
-Once the test is finished it returns an object with the features supported with
-subdivisions per ES version for convenience. A property `__all` is added to indicate
-whether all features are supported or not (also included in subdivisions).
+## How to use
+The different tests are divided into several sections:
+
+- **builtins:** Native core JS objects and constructors (_Array_, _Math_, _object_, etc.)
+- **dom:** DOM (browser environment) specific objects and constructors.
+- **localization:** _Intl_ implementations
+- **syntax:** Syntax implementations (_Promise_, _Arrow Function_, _for..of_, etc.)
+
+You can either run all tests for a specific section by addressing its `index.js` file.
+When called will it return an object where each key is a specific feature,
+and its value a _boolean_ indicating if the feature is supported or not (eg. `Intl.Collator: true`).
 
 ```js
-import { syntax, builtins } from 'es-feature-detection';
+import localization from 'es-feature-detection/localization';
 
-const syntaxTest = syntax();
-
-if(syntaxTest.__all) {
-  // load your uncompiled script
-} else {
-  // Load your es5 script
-}
-
-const builtinsTest = builtins();
-
-if(!builtinsTest.__all) {
-  // load a polyfill for the missing functionality
-  // eg. Map
-  if(!builtinsTest.Map) {
-    // Load your polyfill
-  }
-}
+const supportedIntlFeatures = localization();
 ```
 
-### Only test certain features
-Sometimes you already know what you want to test for and as such don't need to
-test all ES XX features to see what your browser supports. In this case you can directly
-access the tests like so:
+Or you can access specific tests individually for fine grained testing:
 
 ```js
-import es2015Builtins from 'es-feature-detection/builtins/es2015';
-import es2015Syntax from 'es-feature-detection/syntax/es2015';
+import mathLog2 from 'es-feature-detection/builtins/Math.log2';
 
-if(!es2015Builtins().__all) {
-  // Load your polyfills
-}
-
-if(!es2015Syntax().__all) {
-  // Load your es5 script
-}
+const mathLog2IsSupported = mathLog2();
 ```
 
-The same technique of cause goes for all ES versions.
-
-For builtins you can have even more granularity, by selecting which segments you need:
+### All OK
+For convenience a `allOk` function is added in the `utils` folder, which can be
+handy if you want to check if all values in an object is _true_:
 
 ```js
-import es2015Arrays from 'es-feature-detection/builtins/es2015/array';
+import localization from 'es-feature-detection/localization';
+import allOk from 'es-feature-detection/utils/allOk';
 
-if(!es2015Arrays().__all) {
-  // Load your polyfills
+const fullIntlSupport = allOk(localization());
+```
+
+If not every property is supported an array of unsupported fields is returned instead of _true_:
+
+```js
+if (fullIntlSupport !== true) {
+  console.log('Unsupported features:')
+  fullIntlSupport.forEach((key) => console.log(key));
 }
 ```
 
-#### Built-ins segments
-A full list of the segments you can address directly:
+### Test custom expression
+If you have a specific feature you want to test, you can use the `testExpression` function,
+placed in the `utils` folder, to validate a specific string (it is the one used for all tests in this module):
 
-- *es2015*
-  - **array**
-  - **mapSet** (Map/Set)
-  - **math**
-  - **misc** (*Base64 en-/decoding*, *Promise*, *Proxy*, *Reflect*, *requestAnimationFrame*, *Symbol*, *new.target*)
-  - **number**
-  - **object**
-  - **string**
-  - **typedarray**
-- *es2016*
-  - **array.includes**
-- *es2017*
-  - **misc** (*Atomics*, *SharedArrayBuffer*)
-  - **object**
-  - **string**
-- *localization*
-  - **localization**
+```js
+import testExpression from 'es-feature-detection/utils/testExpression';
+// Even though the example is not inventive, it is there to illustrate how it might be used
+const myFeatureIsSupported = testExpression('return MyFeature.someThingToTest()');
+```
+
+The expression you pass in must be passed as a string and it can either _return true/false_
+or it can fail or not. Both cases the test will return _true_ or _false_
+
+### Need to test all features of a given ES version?
+If you need to test the features introduced in a given EchmaScript version a file
+for each version has been placed at the root of the module:
+
+```js
+import es2020 from 'es-feature-detection/es2020';
+import allOk from 'es-feature-detection/utils/allOk';
+
+const fullES2020Support = allOk(es2020());
+```
+
+These _esXX_ files includes both builtins and syntax features introduces in the given version.
 
 ## The reason for this module
 The idea behind this module is to facilitate the detection of what a given browser
@@ -115,10 +110,14 @@ though, you might have some modules (mostly 3rd party) you don't want to run thr
 the transpiler, but might use some built-in methods that are not necessarily
 supported by all browsers. In this case there are some polyfills that are not detected
 and added at compile-time.
-So having the `builtins` detection which can detect which polyfills you need to load can be a good backup.
+So having the `builtins` (or `dom`) detection which can detect which polyfills you need
+to load can be a good backup.
 
 The `syntax` is useful for when you want to have two separate builds: One for newer
 browsers that understand the new goodies. And one that use plain old ES 5.
 
 ### Ideas?
-Have any ideas, improvement request or bugs you have found, don't hesitate to file an issue in the [issue list](https://github.com/Tokimon/es-feature-detection/issues) or throw me a [PR](https://github.com/Tokimon/es-feature-detection/pulls) if you have done some improvements you want to bring to the script.
+Have any ideas, improvement request or bugs you have found, don't hesitate to file
+an issue in the [issue list](https://github.com/Tokimon/es-feature-detection/issues)
+or throw me a [PR](https://github.com/Tokimon/es-feature-detection/pulls) if you
+have done some improvements you want to bring to the script.

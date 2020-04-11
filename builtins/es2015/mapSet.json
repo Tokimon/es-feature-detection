@@ -1,6 +1,0 @@
-{
-  "Map": "return typeof Map !== 'undefined'",
-  "Set": "return typeof Set !== 'undefined'",
-  "WeakMap": "return typeof WeakMap !== 'undefined'",
-  "WeakSet": "return typeof WeakSet !== 'undefined'"
-}

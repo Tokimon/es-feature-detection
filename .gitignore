@@ -33,5 +33,11 @@ node_modules
 .node_repl_history
 
 # Custom folders
-out
-/browser
+*/index.ts
+*.d.ts
+*.js
+!builds/**/*.js
+tests/builtins
+tests/dom
+tests/localization
+tests/syntax
