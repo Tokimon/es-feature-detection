@@ -36,4 +36,8 @@ node_modules
 */index.ts
 *.d.ts
 *.js
-!lib/*.js
+!builds/**/*.js
+tests/builtins
+tests/dom
+tests/localization
+tests/syntax
