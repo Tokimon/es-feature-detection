@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import testExpression from '../utils/testExpression';
+import testExpression from '../../utils/testExpression';
 
 
 

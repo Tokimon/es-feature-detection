@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import allOk from '../utils/allOk';
+import allOk from '../../utils/allOk';
 
 
 
