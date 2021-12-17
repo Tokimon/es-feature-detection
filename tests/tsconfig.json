@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es6",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
@@ -11,6 +11,7 @@
     "lib": ["es5", "es6", "dom"],
     "moduleResolution": "node",
     "allowJs": false,
+    "checkJs": false,
     "outDir": "."
   },
 

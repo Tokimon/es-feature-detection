@@ -7,9 +7,9 @@ import StringPrototypeTrimStart from './builtins/String.prototype.trimStart';
 import SymbolPrototypeDescription from './builtins/Symbol.prototype.description';
 
 // Syntax
-import JSONSuperset, { entryName as JSONSupersetName } from './syntax/JSONSuperset';
-import optionalCatchBinding, { entryName as optionalCatchBindingName } from './syntax/optionalCatchBinding';
-import WellFormedJsonStringify, { entryName as WellFormedJsonStringifyName } from './syntax/WellFormedJsonStringify';
+import JSONSuperset from './syntax/JSONSuperset';
+import optionalCatchBinding from './syntax/optionalCatchBinding';
+import WellFormedJsonStringify from './syntax/WellFormedJsonStringify';
 
 
 
@@ -23,9 +23,9 @@ export const builtins = () => ({
 });
 
 export const syntax = () => ({
-  [JSONSupersetName]: JSONSuperset(),
-  [optionalCatchBindingName]: optionalCatchBinding(),
-  [WellFormedJsonStringifyName]: WellFormedJsonStringify()
+  JSONSuperset: JSONSuperset(),
+  optionalCatchBinding: optionalCatchBinding(),
+  WellFormedJsonStringify: WellFormedJsonStringify()
 });
 
 // All features

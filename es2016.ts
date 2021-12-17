@@ -11,9 +11,9 @@ import Uint16ArrayIncludes from './builtins/Uint16Array.prototype.includes';
 import Uint32ArrayIncludes from './builtins/Uint32Array.prototype.includes';
 
 // Syntax
-import exponentiationOperator, { entryName as exponentiationOperatorName } from './syntax/exponentiationOperator';
-import nestedRestDestructuring, { entryName as nestedRestDestructuringName } from './syntax/nestedRestDestructuring';
-import restParameterDestructuring, { entryName as restParameterDestructuringName } from './syntax/restParameterDestructuring';
+import exponentiationOperator from './syntax/exponentiationOperator';
+import nestedRestDestructuring from './syntax/nestedRestDestructuring';
+import restParameterDestructuring from './syntax/restParameterDestructuring';
 
 
 
@@ -31,9 +31,9 @@ export const builtins = () => ({
 });
 
 export const syntax = () => ({
-  [exponentiationOperatorName]: exponentiationOperator(),
-  [nestedRestDestructuringName]: nestedRestDestructuring(),
-  [restParameterDestructuringName]: restParameterDestructuring()
+  exponentiationOperator: exponentiationOperator(),
+  nestedRestDestructuring: nestedRestDestructuring(),
+  restParameterDestructuring: restParameterDestructuring()
 });
 
 // All features

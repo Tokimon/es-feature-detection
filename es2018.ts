@@ -5,10 +5,10 @@ import RegExpPrototypeUnicode from './builtins/RegExp.prototype.unicode';
 import SymbolAsyncIterator from './builtins/Symbol.asyncIterator';
 
 // Syntax
-import objectSpreadProperties, { entryName as objectSpreadPropertiesName } from './syntax/objectSpreadProperties';
-import regExpLookbehindAssertions, { entryName as regExpLookbehindAssertionsName } from './syntax/regExpLookbehindAssertions';
-import regExpNamedCaptureGroups, { entryName as regExpNamedCaptureGroupsName } from './syntax/regExpNamedCaptureGroups';
-import TemplateLiteralRevision, { entryName as TemplateLiteralRevisionName } from './syntax/TemplateLiteralRevision';
+import objectSpreadProperties from './syntax/objectSpreadProperties';
+import regExpLookbehindAssertions from './syntax/regExpLookbehindAssertions';
+import regExpNamedCaptureGroups from './syntax/regExpNamedCaptureGroups';
+import TemplateLiteralRevision from './syntax/TemplateLiteralRevision';
 
 
 
@@ -20,10 +20,10 @@ export const builtins = () => ({
 });
 
 export const syntax = () => ({
-  [objectSpreadPropertiesName]: objectSpreadProperties(),
-  [regExpLookbehindAssertionsName]: regExpLookbehindAssertions(),
-  [regExpNamedCaptureGroupsName]: regExpNamedCaptureGroups(),
-  [TemplateLiteralRevisionName]: TemplateLiteralRevision()
+  objectSpreadProperties: objectSpreadProperties(),
+  regExpLookbehindAssertions: regExpLookbehindAssertions(),
+  regExpNamedCaptureGroups: regExpNamedCaptureGroups(),
+  TemplateLiteralRevision: TemplateLiteralRevision()
 });
 
 // All features

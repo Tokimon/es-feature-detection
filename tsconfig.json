@@ -11,15 +11,13 @@
     "lib": ["es5", "es6", "dom"],
     "moduleResolution": "node",
     "allowJs": false,
+    "checkJs": false,
     "outDir": ".",
     "strictNullChecks": true,
     "declaration": true
   },
 
-  "include": [
-    "./**/*.ts",
-    "./*.ts"
-  ],
+  "include": ["./**/*.ts", "./*.ts"],
 
   "exclude": [
     "./node_modules/**/*.ts",

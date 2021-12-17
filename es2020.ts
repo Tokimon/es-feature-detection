@@ -5,9 +5,9 @@ import PromiseAllSettled from './builtins/Promise.allSettled';
 import StringPrototypeMatchAll from './builtins/String.prototype.matchAll';
 
 // Syntax
-import DynamicImport, { entryName as DynamicImportName } from './syntax/DynamicImport';
-import NullishCoalescing, { entryName as NullishCoalescingName } from './syntax/NullishCoalescing';
-import OptionalChaining, { entryName as OptionalChainingName } from './syntax/OptionalChaining';
+import DynamicImport from './syntax/DynamicImport';
+import NullishCoalescing from './syntax/NullishCoalescing';
+import OptionalChaining from './syntax/OptionalChaining';
 
 
 
@@ -19,9 +19,9 @@ export const builtins = () => ({
 });
 
 export const syntax = () => ({
-  [DynamicImportName]: DynamicImport(),
-  [NullishCoalescingName]: NullishCoalescing(),
-  [OptionalChainingName]: OptionalChaining()
+  DynamicImport: DynamicImport(),
+  NullishCoalescing: NullishCoalescing(),
+  OptionalChaining: OptionalChaining()
 });
 
 // All features

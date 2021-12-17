@@ -33,7 +33,7 @@ node_modules
 .node_repl_history
 
 # Custom folders
-*/index.ts
+index.ts
 *.d.ts
 *.js
 !builds/**/*.js
