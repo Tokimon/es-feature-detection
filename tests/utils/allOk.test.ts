@@ -1,6 +1,4 @@
-import { expect } from 'chai';
-
-import allOk from '../../utils/allOk';
+import allOk from '~/utils/allOk';
 
 
 
@@ -11,7 +9,7 @@ describe('UTILS/allOk', () => {
       b: true
     };
 
-    expect(allOk(obj)).to.deep.equal(true);
+    expect(allOk(obj)).toBe(true);
   });
 
   it('Returns Array of failing property names, when any property fails', () => {
@@ -22,6 +20,6 @@ describe('UTILS/allOk', () => {
       d: true
     };
 
-    expect(allOk(obj)).to.deep.equal(['a', 'c']);
+    expect(allOk(obj)).toEqual(['a', 'c']);
   });
 });

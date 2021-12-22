@@ -1,27 +1,25 @@
 {
+  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es6",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": false,
-    "target": "es5",
-    "lib": ["es5", "es6", "dom"],
     "moduleResolution": "node",
     "allowJs": false,
     "checkJs": false,
+    "baseUrl": ".",
     "outDir": ".",
     "strictNullChecks": true,
-    "declaration": true
+    "declaration": true,
+    "paths": {
+      "~/*": ["./*"]
+    }
   },
 
-  "include": ["./**/*.ts", "./*.ts"],
-
   "exclude": [
-    "./node_modules/**/*.ts",
-    "./node_modules/.*/**/*.ts",
-    "./tests/**/*.ts"
+    "node_modules"
   ]
 }
