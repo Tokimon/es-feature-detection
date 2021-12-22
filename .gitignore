@@ -37,6 +37,7 @@ index.ts
 *.d.ts
 *.js
 !builds/**/*.js
+!jest*.js
 tests/builtins
 tests/dom
 tests/localization
