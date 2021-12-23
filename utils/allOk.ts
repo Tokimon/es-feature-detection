@@ -2,7 +2,7 @@ export interface ExpressionObject {
   [key: string]: boolean;
 }
 
-export default (obj: ExpressionObject): true | String[] => {
+export default (obj: ExpressionObject): true | string[] => {
   const errors = [];
 
   for (const key in obj) {

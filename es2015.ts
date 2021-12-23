@@ -66,27 +66,27 @@ import _Uint8Array from './builtins/Uint8Array';
 import _Uint8ClampedArray from './builtins/Uint8ClampedArray';
 import _Uint16Array from './builtins/Uint16Array';
 import _Uint32Array from './builtins/Uint32Array';
-import _Weakmap from './builtins/WeakMap';
-import _Weakset from './builtins/WeakSet';
+import _WeakMap from './builtins/WeakMap';
+import _WeakSet from './builtins/WeakSet';
 
 // Syntax
-import arrowFunction, { entryName as arrowFunctionName } from './syntax/arrowFunction';
-import binaryLiterals, { entryName as binaryLiteralsName } from './syntax/binaryLiterals';
-import blockLevelFunctionDeclaration, { entryName as blockLevelFunctionDeclarationName } from './syntax/blockLevelFunctionDeclaration';
-import _class, { entryName as _className } from './syntax/class';
-import computedProperty, { entryName as computedPropertyName } from './syntax/computedProperty';
-import constLet, { entryName as constLetName } from './syntax/constLet';
-import defaultParameters, { entryName as defaultParametersName } from './syntax/defaultParameters';
-import destructuring, { entryName as destructuringName } from './syntax/destructuring';
-import forOf, { entryName as forOfName } from './syntax/forOf';
-import generatorFunction, { entryName as generatorFunctionName } from './syntax/generatorFunction';
-import octalLiterals, { entryName as octalLiteralsName } from './syntax/octalLiterals';
-import restParameters, { entryName as restParametersName } from './syntax/restParameters';
-import shorthandMethod, { entryName as shorthandMethodName } from './syntax/shorthandMethod';
-import shorthandProperty, { entryName as shorthandPropertyName } from './syntax/shorthandProperty';
-import spreadArray, { entryName as spreadArrayName } from './syntax/spreadArray';
-import spreadFunctionCall, { entryName as spreadFunctionCallName } from './syntax/spreadFunctionCall';
-import templateStrings, { entryName as templateStringsName } from './syntax/templateStrings';
+import arrowFunction from './syntax/arrowFunction';
+import binaryLiterals from './syntax/binaryLiterals';
+import blockLevelFunctionDeclaration from './syntax/blockLevelFunctionDeclaration';
+import _class from './syntax/class';
+import computedProperty from './syntax/computedProperty';
+import constLet from './syntax/constLet';
+import defaultParameters from './syntax/defaultParameters';
+import destructuring from './syntax/destructuring';
+import forOf from './syntax/forOf';
+import generatorFunction from './syntax/generatorFunction';
+import octalLiterals from './syntax/octalLiterals';
+import restParameters from './syntax/restParameters';
+import shorthandMethod from './syntax/shorthandMethod';
+import shorthandProperty from './syntax/shorthandProperty';
+import spreadArray from './syntax/spreadArray';
+import spreadFunctionCall from './syntax/spreadFunctionCall';
+import templateStrings from './syntax/templateStrings';
 
 
 
@@ -158,28 +158,28 @@ export const builtins = () => ({
   Uint8ClampedArray: _Uint8ClampedArray(),
   Uint16Array: _Uint16Array(),
   Uint32Array: _Uint32Array(),
-  WeakMap: _Weakmap(),
-  WeakSet: _Weakset()
+  WeakMap: _WeakMap(),
+  WeakSet: _WeakSet()
 });
 
 export const syntax = () => ({
-  [arrowFunctionName]: arrowFunction(),
-  [binaryLiteralsName]: binaryLiterals(),
-  [blockLevelFunctionDeclarationName]: blockLevelFunctionDeclaration(),
-  [_className]: _class(),
-  [computedPropertyName]: computedProperty(),
-  [constLetName]: constLet() ,
-  [defaultParametersName]: defaultParameters(),
-  [destructuringName]: destructuring(),
-  [forOfName]: forOf(),
-  [generatorFunctionName]: generatorFunction(),
-  [octalLiteralsName]: octalLiterals(),
-  [restParametersName]: restParameters(),
-  [shorthandMethodName]: shorthandMethod(),
-  [shorthandPropertyName]: shorthandProperty(),
-  [spreadArrayName]: spreadArray(),
-  [spreadFunctionCallName]: spreadFunctionCall(),
-  [templateStringsName]: templateStrings()
+  arrowFunction: arrowFunction(),
+  binaryLiterals: binaryLiterals(),
+  blockLevelFunctionDeclaration: blockLevelFunctionDeclaration(),
+  _class: _class(),
+  computedProperty: computedProperty(),
+  constLet: constLet() ,
+  defaultParameters: defaultParameters(),
+  destructuring: destructuring(),
+  forOf: forOf(),
+  generatorFunction: generatorFunction(),
+  octalLiterals: octalLiterals(),
+  restParameters: restParameters(),
+  shorthandMethod: shorthandMethod(),
+  shorthandProperty: shorthandProperty(),
+  spreadArray: spreadArray(),
+  spreadFunctionCall: spreadFunctionCall(),
+  templateStrings: templateStrings()
 });
 
 // All features

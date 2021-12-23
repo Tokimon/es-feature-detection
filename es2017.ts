@@ -8,8 +8,8 @@ import StringPrototypePadEnd from './builtins/String.prototype.padEnd';
 import StringPrototypePadStart from './builtins/String.prototype.padStart';
 
 // Syntax
-import asyncAwait, { entryName as asyncAwaitName } from './syntax/asyncAwait';
-import trailingParameterCommas, { entryName as trailingParameterCommasName } from './syntax/trailingParameterCommas';
+import asyncAwait from './syntax/asyncAwait';
+import trailingParameterCommas from './syntax/trailingParameterCommas';
 
 
 
@@ -24,8 +24,8 @@ export const builtins = () => ({
 });
 
 export const syntax = () => ({
-  [asyncAwaitName]: asyncAwait(),
-  [trailingParameterCommasName]: trailingParameterCommas()
+  asyncAwait: asyncAwait(),
+  trailingParameterCommas: trailingParameterCommas()
 });
 
 // All features

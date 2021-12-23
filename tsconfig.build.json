@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "es6", "dom"]
+  },
+
+  "include": [
+    "./*.ts",
+    "./builtins/*.ts",
+    "./dom/*.ts",
+    "./localization/*.ts",
+    "./syntax/*.ts"
+  ],
+}
