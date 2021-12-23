@@ -1,6 +1,7 @@
 # es-feature-detection
 
-[![Build Status](https://travis-ci.org/Tokimon/es-feature-detection.svg?branch=master)](https://travis-ci.org/Tokimon/es-feature-detection)
+[![Build Status](https://github.com/Tokimon/es-feature-detection/actions/workflows/validation.yml/badge.svg)](https://travis-ci.org/Tokimon/es-feature-detection)
+[![Coverage](https://coveralls.io/repos/github/Tokimon/es-feature-detection/badge.svg?branch=master)](https://coveralls.io/github/Tokimon/es-feature-detection)
 [![install size](https://packagephobia.now.sh/badge?p=es-feature-detection)](https://packagephobia.now.sh/result?p=es-feature-detection)
 
 ECMAScript feature and API detection in the browser.
