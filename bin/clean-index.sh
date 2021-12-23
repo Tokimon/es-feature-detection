@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rm -f ./builtins/index.ts
 rm -f ./dom/index.ts
 rm -f ./localization/index.ts

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rm -rf ./tests/builtins
 rm -rf ./tests/dom
 rm -rf ./tests/localization

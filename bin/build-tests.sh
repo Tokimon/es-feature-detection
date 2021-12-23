@@ -1,3 +1,5 @@
+#!/bin/bash
+
 printDone() {
   echo -e '\e[1;32mdone\e[0m'
 }

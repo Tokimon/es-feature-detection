@@ -1,3 +1,5 @@
+#!/bin/bash
+
 printDone() {
   echo -e '\e[1;32mdone\e[0m'
 }
@@ -13,10 +15,10 @@ write() {
 
   for file in ./$1/*.ts; do
     name=$(basename $file .ts)
-    importName="_${name//\./}"
+    importName=$( printf "_$name" | sed -e 's/\./_/g' )
 
-    names+=($name)
-    importNames+=($importName)
+    names+=($name);
+    importNames+=($importName);
 
     echo "import $importName from './$name';" >> $filename
   done
@@ -26,7 +28,7 @@ write() {
 
   COUNT=${#names[@]}
 
-  for ((i=0; i<$COUNT; i++)); do
+  for ((i=0; i < $COUNT; i++)); do
     key=${names[$i]}
     import=${importNames[$i]}
    
@@ -70,7 +72,3 @@ write 'dom'
 write 'localization'
 write "syntax"
 mainIndex
-
-
-
-
