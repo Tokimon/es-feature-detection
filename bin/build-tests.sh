@@ -25,8 +25,8 @@ write() {
       names+=($name)
       importNames+=($importName)
 
-      echo "import suite from '~/tests/helpers/suite'" >> $filename
-      echo "import extra from '~/tests/helpers/testExpression';" >> $filename
+      echo "import suite from '~tests/helpers/suite'" >> $filename
+      echo "import extra from '~tests/helpers/testExpression';" >> $filename
       echo "import * as file from '~/$1/$name'" >> $filename
       echo "" >> $filename
       echo "suite({ section: '$1', name: '$name', file, extra });" >> $filename

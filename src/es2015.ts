@@ -168,7 +168,7 @@ export const syntax = () => ({
   blockLevelFunctionDeclaration: blockLevelFunctionDeclaration(),
   _class: _class(),
   computedProperty: computedProperty(),
-  constLet: constLet() ,
+  constLet: constLet(),
   defaultParameters: defaultParameters(),
   destructuring: destructuring(),
   forOf: forOf(),

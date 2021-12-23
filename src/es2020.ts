@@ -1,13 +1,13 @@
 // Built-ins
-import _BigInt from './builtins/BigInt';
-import _globalThis from './builtins/globalThis';
-import PromiseAllSettled from './builtins/Promise.allSettled';
-import StringPrototypeMatchAll from './builtins/String.prototype.matchAll';
+import _BigInt from '~/builtins/BigInt';
+import _globalThis from '~/builtins/globalThis';
+import PromiseAllSettled from '~/builtins/Promise.allSettled';
+import StringPrototypeMatchAll from '~/builtins/String.prototype.matchAll';
 
 // Syntax
-import DynamicImport from './syntax/DynamicImport';
-import NullishCoalescing from './syntax/NullishCoalescing';
-import OptionalChaining from './syntax/OptionalChaining';
+import DynamicImport from '~/syntax/DynamicImport';
+import NullishCoalescing from '~/syntax/NullishCoalescing';
+import OptionalChaining from '~/syntax/OptionalChaining';
 
 
 

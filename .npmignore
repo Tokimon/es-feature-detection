@@ -1,5 +1,11 @@
-.travis.yml
+.github
+.vscode
+.eslintrc
+.eslintignore
+bin
+coverage
+src
 tests
-lib
-*.ts
-!*.d.ts
+jest.config.js
+tsconfig.json
+tsconfig.build.json

@@ -1,2 +1,5 @@
 coverage
 node_modules
+index.ts
+src
+!src/utils/index.ts

@@ -34,11 +34,21 @@ node_modules
 
 # Custom folders
 index.ts
-*.d.ts
-*.js
+!src/utils/index.ts
 !builds/**/*.js
 !jest*.js
+
 tests/builtins
 tests/dom
 tests/localization
 tests/syntax
+
+/builtins
+/dom
+/localization
+/syntax
+/utils
+
+/es*.js
+/es*.d.ts
+

@@ -1,15 +1,15 @@
 // Built-ins
-import ArrayPrototypeFlat from './builtins/Array.prototype.flat';
-import ArrayPrototypeFlatMap from './builtins/Array.prototype.flatMap';
-import ObjectFromEntries from './builtins/Object.fromEntries';
-import StringPrototypeTrimEnd from './builtins/String.prototype.trimEnd';
-import StringPrototypeTrimStart from './builtins/String.prototype.trimStart';
-import SymbolPrototypeDescription from './builtins/Symbol.prototype.description';
+import ArrayPrototypeFlat from '~/builtins/Array.prototype.flat';
+import ArrayPrototypeFlatMap from '~/builtins/Array.prototype.flatMap';
+import ObjectFromEntries from '~/builtins/Object.fromEntries';
+import StringPrototypeTrimEnd from '~/builtins/String.prototype.trimEnd';
+import StringPrototypeTrimStart from '~/builtins/String.prototype.trimStart';
+import SymbolPrototypeDescription from '~/builtins/Symbol.prototype.description';
 
 // Syntax
-import JSONSuperset from './syntax/JSONSuperset';
-import optionalCatchBinding from './syntax/optionalCatchBinding';
-import WellFormedJsonStringify from './syntax/WellFormedJsonStringify';
+import JSONSuperset from '~/syntax/JSONSuperset';
+import optionalCatchBinding from '~/syntax/optionalCatchBinding';
+import WellFormedJsonStringify from '~/syntax/WellFormedJsonStringify';
 
 
 

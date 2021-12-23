@@ -9,11 +9,12 @@ write() {
 
   declare -a names
   declare -a importNames
-  filename="./$1/index.ts"
+  folder="./src/$1"
+  filename="$folder/index.ts"
 
   rm -f $filename
 
-  for file in ./$1/*.ts; do
+  for file in $folder/*.ts; do
     name=$(basename $file .ts)
     importName=$( printf "_$name" | sed -e 's/\./_/g' )
 
@@ -44,11 +45,11 @@ mainIndex() {
   printf "Generating \e[1;33mmain index.ts\e[0m ... "
 
   declare -a names
-  filename="./index.ts"
+  filename="./src/index.ts"
 
   rm -f $filename
 
-  for file in ./es20[1-2][0-9].ts; do
+  for file in ./src/es20[1-2][0-9].ts; do
     name=$(basename $file .ts)
     names+=($name)
     
