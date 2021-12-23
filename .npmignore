@@ -2,6 +2,7 @@
 .vscode
 .eslintrc
 .eslintignore
+lib
 bin
 coverage
 src

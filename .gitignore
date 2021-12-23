@@ -51,4 +51,5 @@ tests/syntax
 
 /es*.js
 /es*.d.ts
-
+/index.d.ts
+/index.js
