@@ -2,49 +2,73 @@
   "name": "es-feature-detection",
   "version": "3.0.1",
   "description": "ECMAScript feature and API detection",
-  "main": "index.js",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./builtins": {
+      "types": "./dist/builtins/index.d.ts",
+      "default": "./dist/builtins/index.js"
+    },
+    "./localization": {
+      "types": "./dist/localization/index.d.ts",
+      "default": "./dist/localization/index.js"
+    },
+    "./syntax": {
+      "types": "./dist/syntax/index.d.ts",
+      "default": "./dist/syntax/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "default": "./dist/utils/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
   "sideEffects": false,
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "npm run build:tests && jest",
-    "test:coverage": "npm t -- --collectCoverage",
-    "test:nobuild": "jest",
-    "build": "npm run build:index && npm run compile",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage",
+    "build": "bun run build:index && bun run compile && bun run readme",
     "build:index": "./bin/build-index.sh",
-    "build:tests": "./bin/build-tests.sh",
-    "compile": "tsc -p ./src/tsconfig.json",
-    "typecheck": "tsc -p ./tsconfig.build.json --noEmit",
-    "clean": "npm run clean:compile && npm run clean:index && npm run clean:tests",
-    "clean:empty": "rmdir $(find -maxdepth 1 -path './utils' -o -path './dom' -o -path './localization' -o -path './syntax' -o -path './builtins' -type d -empty)",
-    "clean:compile": "tsc -b src --clean && npm run clean:empty",
+    "compile": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json -f",
+    "typecheck": "tsc --noEmit",
+    "clean": "bun run clean:compile && bun run clean:index",
+    "clean:compile": "rm -rf dist",
     "clean:index": "./bin/clean-index.sh",
-    "clean:tests": "./bin/clean-tests.sh",
-    "prepublishOnly": "npm run build",
-    "postpublish": "npm run clean",
-    "lint": "eslint **/*.ts"
+    "prepublishOnly": "bun run build",
+    "postpublish": "bun run clean",
+    "lint": "biome check .",
+    "readme": "bun bin/readme.ts && biome format --write README.md"
   },
   "repository": {
     "type": "git",
     "url": "git+https://Tokimon@github.com/Tokimon/es-feature-detection.git"
   },
   "keywords": [
-    "es6",
-    "es7",
-    "es2015",
-    "es2016",
-    "es2017",
-    "es2018",
-    "es2019",
-    "es2020",
     "ecmascript",
+    "es2023",
+    "es2024",
+    "es2025",
+    "es2026",
+    "es2027",
+    "tc39",
     "feature",
     "detect",
     "check",
     "test",
     "syntax",
     "polyfill",
-    "builtin",
-    "dom",
-    "localization"
+    "builtin"
   ],
   "author": "Toke Voltelen <tokevoltelen@gmail.com>",
   "license": "MIT",
@@ -53,21 +77,9 @@
   },
   "homepage": "https://github.com/Tokimon/es-feature-detection#readme",
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.2",
-    "@types/jest": "^27.0.3",
-    "@types/node": "^17.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.7.0",
-    "@typescript-eslint/parser": "^5.7.0",
-    "coveralls": "^3.1.1",
-    "eslint": "^8.4.1",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jest": "^25.3.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-standard": "^5.0.0",
-    "jest": "^27.4.5",
-    "ts-jest": "^27.1.2",
-    "typescript": "^4.5.4"
+    "@biomejs/biome": "^2.6.9",
+    "@types/bun": "^1.4.5",
+    "tsc-alias": "^1.9.11",
+    "typescript": "^7.0.2"
   }
 }

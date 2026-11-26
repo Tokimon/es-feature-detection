@@ -1,26 +1,16 @@
 {
-  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": false,
-    "moduleResolution": "node",
-    "allowJs": false,
-    "checkJs": false,
-    "baseUrl": ".",
-    "outDir": ".",
-    "strictNullChecks": true,
-    "declaration": true,
-    "paths": {
-      "~/*": ["./src/*"],
-      "~tests/*": ["./tests/*"]
-    }
+    "target": "es2022",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": ["esnext", "dom"],
+    "types": ["bun"],
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "paths": { "@/*": ["./src/*"] }
   },
-
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src", "tests", "bin"]
 }

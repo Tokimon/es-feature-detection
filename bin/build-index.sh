@@ -69,7 +69,6 @@ mainIndex() {
 }
 
 write 'builtins'
-write 'dom'
 write 'localization'
 write "syntax"
 mainIndex
