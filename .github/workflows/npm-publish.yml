@@ -23,5 +23,10 @@ jobs:
           node-version: 24
           registry-url: https://registry.npmjs.org/
       - run: bun install --frozen-lockfile
-      # prepublishOnly runs `validate` and `build`
-      - run: npm publish --provenance
+
+      - name: Release tag matches package.json version
+        run: test "${{ github.event.release.tag_name }}" = "v$(node -p "require('./package.json').version")"
+
+      # prepublishOnly runs `validate` and `build`.
+      # Pre-releases go to the `next` dist-tag so `npm i es-feature-detection` keeps installing the latest stable.
+      - run: npm publish --provenance ${{ github.event.release.prerelease && '--tag next' || '' }}
