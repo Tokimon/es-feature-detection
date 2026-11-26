@@ -8,9 +8,18 @@ const srcDir = join(import.meta.dirname, '..', 'src');
 const registered = new Set<string>();
 for (const f of readdirSync(srcDir).filter((f) => /^es\d{4}\.ts$/.test(f))) {
   const mod = await import(join(srcDir, f));
+  const sectionKeys: string[] = [];
   for (const section of sections) {
-    for (const key of Object.keys(mod[section]?.() ?? {})) registered.add(key);
+    sectionKeys.push(...Object.keys(mod[section]?.() ?? {}));
   }
+  for (const key of sectionKeys) registered.add(key);
+
+  it(`${f} default export combines all its sections`, () => {
+    const all = mod.default();
+    expect(Object.keys(all).sort()).toEqual(sectionKeys.sort());
+    for (const value of Object.values(all))
+      expect(typeof value).toBe('boolean');
+  });
 }
 
 for (const section of sections) {
