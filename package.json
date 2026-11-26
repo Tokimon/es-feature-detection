@@ -1,6 +1,6 @@
 {
   "name": "es-feature-detection",
-  "version": "4.0.0-rc.0",
+  "version": "4.0.0",
   "description": "ECMAScript feature and API detection",
   "type": "module",
   "main": "./dist/index.js",
