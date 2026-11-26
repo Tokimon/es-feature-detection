@@ -1,6 +1,5 @@
-import testExpression from '~/utils/testExpression';
-
-
+import { describe, expect, it } from 'bun:test';
+import testExpression from '@/utils/testExpression';
 
 describe('UTILS/testExpression', () => {
   describe('Expression that returns boolean', () => {
