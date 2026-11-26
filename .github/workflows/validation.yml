@@ -1,32 +1,29 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
 name: Validation
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validation-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Validation
-      uses: actions/setup-node@v2
-      with:
-        node-version: 16.x
-    - run: npm ci
-    - run: npm run lint
-    - run: npm run test:coverage
-    - run: npm run build
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+      - run: bun install --frozen-lockfile
+      - run: bun run validate
+      - run: bun run build
 
-    - name: Coveralls report
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.github_token }}
+      - name: README feature list is up to date
+        run: git diff --exit-code README.md
