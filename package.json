@@ -45,14 +45,15 @@
     "clean": "bun run clean:compile && bun run clean:index",
     "clean:compile": "rm -rf dist",
     "clean:index": "./bin/clean-index.sh",
-    "prepublishOnly": "bun run build",
+    "validate": "bun run lint && bun run typecheck && bun run test:coverage",
+    "prepublishOnly": "bun run validate && bun run build",
     "postpublish": "bun run clean",
     "lint": "biome check .",
     "readme": "bun bin/readme.ts && biome format --write README.md"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://Tokimon@github.com/Tokimon/es-feature-detection.git"
+    "url": "git+https://github.com/Tokimon/es-feature-detection.git"
   },
   "keywords": [
     "ecmascript",
@@ -72,6 +73,7 @@
   ],
   "author": "Toke Voltelen <tokevoltelen@gmail.com>",
   "license": "MIT",
+  "packageManager": "bun@1.3.14",
   "bugs": {
     "url": "https://github.com/Tokimon/es-feature-detection/issues"
   },
